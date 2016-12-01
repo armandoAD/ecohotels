@@ -1,0 +1,2684 @@
+<?php
+/*
+ * custom function related to front end.
+ */
+if(!is_admin() && !strstr($_SERVER['REQUEST_URI'],'/wp-admin/' ) || isset($_REQUEST['front']) && $_REQUEST['front']==1){
+	add_filter('tiny_mce_plugins','tmpl_tiny_mce_plugins');
+	add_filter('mce_buttons','tmpl_mce_buttons');
+	add_filter('mce_buttons_2','tmpl_mce_buttons_2');
+}
+
+/* This use category wise filter field to show menu in post_content */
+if(!function_exists('tmpl_mce_buttons')){
+    function tmpl_mce_buttons(){
+            return array('bold', 'italic', 'strikethrough', 'bullist', 'numlist', 'blockquote', 'hr', 'link', 'unlink');
+    }
+}
+/*
+ * This function user for get the tevolution custom fields on wpml language wise post join filter
+ */
+function custom_field_posts_where_filter($join)
+{
+	global $wpdb,$ljoin;
+	$language_where='';
+	if(is_plugin_active('sitepress-multilingual-cms/sitepress.php')){
+		$language = ICL_LANGUAGE_CODE;
+		$join .= " {$ljoin} JOIN {$wpdb->prefix}icl_translations t ON {$wpdb->posts}.ID = t.element_id			
+			AND t.element_type IN ('post_custom_fields') JOIN {$wpdb->prefix}icl_languages l ON t.language_code=l.code AND l.active=1 AND t.language_code='".$language."'";
+	}	
+	return $join;
+}
+
+
+/* 
+ * This function user for get the post type wise custom filed from  frontend submit post type
+ * only get the show on submit form enable custom fields.
+ */
+function get_post_custom_fields_templ_plugin($post_types,$category_id='',$taxonomy='',$heading_type='',$remove_post_id='',$pakg_id ='') {	
+	global $wpdb,$post,$_wp_additional_image_sizes;
+	$templatic_settings = get_option('templatic_settings');
+	if(@$_REQUEST['page'] != 'paynow'  && @$_REQUEST['page'] != 'transcation' && $category_id!=''  )
+	{
+		$category_id = explode(",",$category_id);
+	}	
+	remove_all_actions('posts_where');
+	$remove_post_id_array = explode(",",$remove_post_id);
+	
+	/* Get the custom fields on heading type wise */
+	if($heading_type){
+		$args=array('post_type'      => 'custom_fields',
+					'posts_per_page' => -1	,
+					'post_status'    => array('publish'),
+					'post__not_in'   => $remove_post_id_array,
+					'meta_query'     => array('relation' => 'AND',
+											array('key' => 'post_type_'.$post_types, 'value' => array('all',$post_types),'compare' => 'IN','type'=> 'text'),											
+											array('key' => 'show_on_page','value' =>  array('user_side','both_side'),'compare' => 'IN','type'=> 'text'),											
+											array('key' => $post_types.'_heading_type','value' =>  array('basic_inf',htmlspecialchars_decode($heading_type)),'compare' => 'IN'),
+											array('key' => 'is_submit_field', 'value' =>  '1','compare' => '='),
+										),
+					'meta_key'       => $post_types.'_sort_order',
+					'orderby'        => 'meta_value_num',
+					'meta_value_num' => $post_types.'_sort_order',
+					'order'          => 'ASC'
+				);		
+		if((isset($_REQUEST['pid']) && $_REQUEST['pid']!='' && isset($_REQUEST['action']) && $_REQUEST['action']=='edit') || (isset($_REQUEST['action_edit']) && $_REQUEST['action_edit']=='edit')){
+			/* Unset is submit field  on edit listing page for display all custom fields post type wise*/			
+			unset($args['meta_query'][3]);	
+		}
+		
+	}else{ /*Get the custom fields without heading type wise */
+		$args=array('post_type'      => 'custom_fields',
+					'posts_per_page' => -1	,
+					'post_status'    => array('publish'),
+					'post__not_in'   => $remove_post_id_array,
+					'meta_query'     => array('relation' => 'AND',
+											array('key' => 'post_type_'.$post_types.'','value' => array('all',$post_types),'compare' => 'In','type'=> 'text'),
+											array('key' => 'show_on_page','value' =>  array('user_side','both_side'),'compare' => 'IN','type'=> 'text'),
+											array('key' => 'is_submit_field', 'value' =>  '1','compare' => '='),
+									    ),
+					'meta_key'       => $post_types.'_sort_order',
+					'orderby'        => 'meta_value_num',
+					'meta_value_num' => $post_types.'_sort_order',
+					'order'          => 'ASC'
+					);
+		
+		if((isset($_REQUEST['pid']) && $_REQUEST['pid']!='' && isset($_REQUEST['action']) && $_REQUEST['action']=='edit') || (isset($_REQUEST['action_edit']) && $_REQUEST['action_edit']=='edit')){
+			/* Unset is submit field  on edit listing page for display all custom fields post type wise*/
+			unset($args['meta_query'][2]);	
+		}		
+	}	
+	
+	/* Get the custom fields category wise if category id not equal to blank */
+
+	if($category_id!=''){
+		$args['tax_query']	= array('relation' => 'OR',
+									array('taxonomy' => $taxonomy,'field' => 'id','terms' => $category_id,'operator'  => 'IN','include_children' => false),
+									array('taxonomy' => 'category','field' => 'id','terms' => 1,'operator'  => 'IN','include_children' => false)
+								 );
+	}	
+	$post_meta_info = null;
+	remove_all_actions('posts_orderby');
+	/* remove filter from submit form causing email custom field issue while submiting jobs */
+	remove_filter('pre_get_posts', 'home_page_feature_listing');
+	/* add posts)join filter for get the custom fields on wpml language wise */
+	add_filter('posts_join', 'custom_field_posts_where_filter');	
+	$post_meta_info = new WP_Query($args);
+	
+	$return_arr = array();	
+	if($post_meta_info){
+		while ($post_meta_info->have_posts()) : $post_meta_info->the_post();
+			$is_active=get_post_meta($post->ID,"is_active",true);
+			$ctype=get_post_meta($post->ID,"ctype",true);
+			
+			/* if facebook login is done then get package id from session */
+			if(!$pakg_id && (isset($_SESSION['custom_fields']['pkg_id']) && $_SESSION['custom_fields']['pkg_id']!='')){
+					$pakg_id = $_SESSION['custom_fields']['pkg_id'];
+			}
+			if(isset($_REQUEST['pkg_id']) && $_REQUEST['pkg_id']!="")
+			{
+				$_REQUEST['pakg_id']=$_REQUEST['pkg_id'];
+			}
+			$vat = get_post_meta($post->ID,"htmlvar_name",true);
+			
+			/*Custom fields loop returns if is active not equal to one or ctype equal to heading type */
+			if(is_plugin_active('Tevolution-FieldsMonetization/fields_monetization.php') && (isset($_REQUEST['pakg_id']) && $_REQUEST['pakg_id']!='' || $pakg_id!='') && $vat !== 'category'){
+				
+				if($pakg_id!= '')
+				{
+					$package_select=$pakg_id;
+				}
+				else
+				{
+					$package_select=$_REQUEST['pakg_id'];
+				}
+				$field_monetiz_custom_fields=get_post_meta($package_select,'custom_fields',true);
+				if(!empty($field_monetiz_custom_fields) && !in_array($post->ID, $field_monetiz_custom_fields)){
+					continue;
+				}
+			}
+			
+			if($is_active!=1 || $ctype=='heading_type'){
+				continue;
+			}
+		
+			if(get_post_meta($post->ID,"ctype",true)){
+				$options = explode(',',get_post_meta($post->ID,"option_values",true));
+			}
+			$field_category=get_post_meta($post->ID,"field_category",true);
+			$custom_fields = array(
+					"id"		          => $post->ID,
+					"name"		          => get_post_meta($post->ID,"htmlvar_name",true),
+					"label" 	          => $post->post_title,
+					"htmlvar_name" 	      => get_post_meta($post->ID,"htmlvar_name",true),
+					"default" 	          => get_post_meta($post->ID,"default_value",true),
+					"ctype" 	 	          => get_post_meta($post->ID,"ctype",true),
+					"desc"                => $post->post_content,
+					"option_title"        => get_post_meta($post->ID,"option_title",true),
+					"option_values"       => get_post_meta($post->ID,"option_values",true),
+					"is_require"          => get_post_meta($post->ID,"is_require",true),
+					"is_active"           => get_post_meta($post->ID,"is_active",true),
+					"show_on_listing"     => get_post_meta($post->ID,"show_on_listing",true),
+					"show_on_detail"      => get_post_meta($post->ID,"show_on_detail",true),
+					"validation_type"     => get_post_meta($post->ID,"validation_type",true),
+					"field_require_desc"  => get_post_meta($post->ID,"field_require_desc",true),
+					"style_class"         => get_post_meta($post->ID,"style_class",true),
+					"extra_parameter"     => get_post_meta($post->ID,"extra_parameter",true),
+					"show_in_email"       => get_post_meta($post->ID,"show_in_email",true),
+					"range_min"           => get_post_meta($post->ID,"range_min",true),
+					"range_max"           => get_post_meta($post->ID,"range_max",true),
+					"search_ctype"        => get_post_meta($post->ID,"search_ctype",true),
+					"field_category"      => ($field_category)?$field_category: 'all',
+					);
+			if($options)
+			{
+				$custom_fields["options"]=$options;
+			}
+			$return_arr[get_post_meta($post->ID,"htmlvar_name",true)] = $custom_fields;
+		endwhile;wp_reset_query();
+	}
+	/*remove posts_join wpml language filter */
+	remove_filter('posts_join', 'custom_field_posts_where_filter');
+	
+	return $return_arr;
+	
+}
+
+/*
+	Difference between two date date must be in Y-m-d format
+*/
+function templ_number_of_days($date1, $date2,$adays =30) {
+	$date1Array = explode('-', $date1);
+	$date1Epoch = mktime(0, 0, 0, $date1Array[1],
+	$date1Array[2], $date1Array[0]);
+	$date2Array = explode('-', $date2);
+	$date2Epoch = mktime(0, 0, 0, $date2Array[1],
+	$date2Array[2], $date2Array[0]);
+	
+	if(date('Y-m-d',$date1Epoch) == date('Y-m-d',$date2Epoch)){
+		$date_diff = $date2Epoch - $date1Epoch;
+		return round($date_diff / 60 / 60 / 24);
+	}else{
+		$date_diff = $date2Epoch - $date1Epoch;
+		return round($date_diff / 60 / 60 / 24);
+	}
+	
+}
+/* this function will remove the space and convert upper case latter to lower case */
+function tmplCompFld($str){
+	$str = strtolower(trim($str));
+	return $str;
+}
+
+/* 
+ * Returns all custom fields html
+ */
+
+function display_custom_post_field_plugin($custom_metaboxes,$session_variable,$post_type,$pkg_id='',$submit_page_id=''){
+	global $wpdb;	
+	
+	foreach($custom_metaboxes as $heading=>$_custom_metaboxes)
+	{
+		$i = 0;
+		$activ = fetch_active_heading($heading);
+		/* Display custom fields heading  fields wise */
+		if($activ):
+			$PostTypeObject = get_post_type_object($post_type);
+			$PostTypeTags=$PostTypeObject->slugs[1];
+			$_PostTypeName = $PostTypeObject->labels->name;
+			if(function_exists('icl_register_string')){
+				icl_register_string('templatic',$_PostTypeName.'submit',$_PostTypeName);
+				$_PostTypeName =icl_t('templatic',$_PostTypeName.'submit',$_PostTypeName);
+			}			
+			$_PostTypeName = $_PostTypeName . ' ' . __('Information','templatic');
+			if($heading == '[#taxonomy_name#]' && $_custom_metaboxes)
+			{
+				$heading='';			
+				$heading_desc='';
+            }
+			else
+			{
+				if($_custom_metaboxes){
+					if(function_exists('icl_register_string')){
+						icl_register_string('templatic',$heading,$heading);
+					}
+					if(function_exists('icl_t')){
+						$heading = icl_t('templatic',$heading,$heading);
+					}else{
+						$heading = sprintf(__("%s",'templatic'),$heading);
+					}					
+				}
+				$heading_desc=$_custom_metaboxes['basic_inf']['desc'];
+			}
+			if($_custom_metaboxes && $i == 0 ){
+				echo '<div class="sec_title">';
+				
+					if(tmplCompFld($heading) != tmplCompFld('Label of Field'))
+						echo '<h3>'.$heading.'</h3>';
+					echo ($heading_desc!='')? '<p>'.$heading_desc.'</p>' : '';
+				echo '</div>';
+				$i++;
+			}
+		endif;	
+		/* Finish custom field heading display section */
+		$_PostTypeNameDescription = $PostTypeObject->labels->name;
+		if(function_exists('icl_register_string')){
+			icl_register_string('templatic',$_PostTypeNameDescription.'submitdesc',$_PostTypeNameDescription);
+			$_PostTypeNameDescription =icl_t('templatic',$_PostTypeNameDescription.'submitdesc',$_PostTypeNameDescription);
+		}
+		foreach($_custom_metaboxes as $key=>$val) {
+			$name = $val['name'];
+			$site_title = $val['label'];
+			$type = $val['ctype'];
+			$htmlvar_name = $val['htmlvar_name'];			
+			$field_category=$val['field_category'];
+			$allowed_types = "jpeg,jpg,png,gif,doc,zip,pdf";
+			$allowed_type = apply_filters('tmpl_allowed_types',$allowed_types,$htmlvar_name);
+			/*set the post category , post title, post content, post image and post expert replace as per post type*/
+			if($htmlvar_name=="category")
+			{
+				$site_title=str_replace('Post Category',__('Category','templatic'),$site_title);
+			}
+			if($htmlvar_name=="post_title")
+			{
+				$site_title=str_replace('Post Title',ucfirst($_PostTypeNameDescription)." ".__('Title','templatic'),$site_title);
+			}
+			if($htmlvar_name=="post_content")
+			{
+				$site_title=str_replace('Post Content',ucfirst($_PostTypeNameDescription)." ".__('Description','templatic'),$site_title);
+			}
+			if($htmlvar_name=="post_excerpt")
+			{
+				$site_title=str_replace('Post Excerpt',ucfirst($_PostTypeNameDescription)." ".__('description in two lines (will be shown on listing pages)','templatic'),$site_title);
+			}
+			if($htmlvar_name=="post_images")
+			{
+				$site_title=str_replace('Post Images',__('Images','templatic'),$site_title);
+			}
+			/*finish post type wise replace post category, post title, post content, post expert, post images*/
+			$admin_desc = $val['desc'];
+			$option_values = $val['option_values'];
+			$default_value = $val['default'];
+			$style_class = $val['style_class'];
+			$extra_parameter = $val['extra_parameter'];
+			$field_require_desc = $val['field_require_desc'];
+			if(!$extra_parameter){ $extra_parameter ='';}
+			/* Is required CHECK BOF */
+			$is_required = '';
+			$input_type = '';
+			if(trim($val['validation_type']) != ''){
+				if($val['is_require'] == '1'){
+				$is_required = '<span class="required">*</span>';
+				}
+				
+				$is_required_msg = '<span id="'.$name.'_error" class="message_error2"></span>';
+			} else {
+				$is_required = '';
+				$is_required_msg = '';
+			}
+			/* Is required CHECK EOF */
+			$value = "";
+			if(@$_REQUEST['pid'])
+			{
+				$post_info = get_post($_REQUEST['pid']);
+				if($name == 'post_title') {
+					$value = $post_info->post_title;
+				}
+				elseif($name == 'post_content') {
+					$value = $post_info->post_content;
+				}
+				elseif($name == 'post_excerpt'){
+					$value = $post_info->post_excerpt;
+				}elseif($name == 'post_tags'){
+						$terms = get_the_terms( $_REQUEST['pid'], $PostTypeTags );
+						if($terms){
+									foreach( $terms as $term ){
+										$term_names[] = $term->name;
+									}
+
+						$value =  implode( ', ', $term_names );
+						}else{
+									 $value = '';
+						}
+				}else {
+					$value = get_post_meta($_REQUEST['pid'], $name,true);
+				}
+			}
+			
+			if(isset($_SESSION[$session_variable]) && !empty($_SESSION[$session_variable]))
+			{
+				$value = @$_SESSION[$session_variable][$name];
+			}elseif(isset($_REQUEST[$name])){
+				$value = $_REQUEST[$name];
+			}
+			$value = apply_filters('SelectBoxSelectedOptions',$value,$name);			
+
+		/* custom fields loop continue when custom field type equal to heading type */
+		if($type=='heading_type' || $type=='post_categories'){
+			continue;
+		}
+		do_action('tmpl_custom_fields_'.$name.'_before_wrap');		
+		
+		$custom_fileds=($type!='post_categories')?'custom_fileds':'';
+		?>
+		<div class="form_row clearfix <?php echo $custom_fileds.' '.$style_class. ' '.$name;?>">
+		   
+		<?php
+		/* label of custom fields */
+		if($type=='text'){
+			$labelclass= apply_filters('tmpl_cf_lbl_class_'.$name ,'r_lbl');
+		}else{
+			$labelclass= apply_filters('tmpl_cf_lbl_class_'.$name ,'');
+		}
+		
+		/*Show label as heading type if the fields heading type is set as "Label of field" */
+		if(tmplCompFld($heading) == tmplCompFld('Label of Field')){
+			echo '<div class="sec_title">';
+					echo '<h3>'.$site_title.$is_required.'</h3>';
+			echo '</div>';
+		}else{
+			$label = "<label class=".$labelclass.">".$site_title.$is_required."</label>";
+			//echo tmplCompFld($site_title) .'!='. tmplCompFld('Multi City').'==='.$htmlvar_name;
+			if($htmlvar_name != 'post_city_id')
+				echo $label;
+		}
+			
+		   
+		/* label of custom fields */
+		
+		switch ($type) {
+			case "text":
+				/* input type text - when the fields name is geo latitude and longitude we needs to add extra functions in input field */
+				if($name == 'geo_latitude' || $name == 'geo_longitude') {
+					$extra_script = apply_filters('tmpl_cf_extra_fields_'.$name,'onblur="changeMap();"');
+				} else {
+					$extra_script =  apply_filters('tmpl_cf_extra_fields_'.$name,'"');;
+				}
+
+				do_action('tmpl_custom_fields_'.$name.'_before'); ?>
+				
+				<input name="<?php echo $name;?>" id="<?php echo $name;?>" value="<?php if(isset($value) && $value!=''){ echo stripslashes($value); } ?>" type="text" class="textfield <?php echo $style_class;?>" <?php echo $extra_parameter; ?> <?php echo $extra_script;?> placeholder="<?php echo @$val['default']; ?>"/>
+				
+				<?php echo $is_required_msg;
+				if($admin_desc!=""):?><div class="description"><?php echo $admin_desc; ?></div><?php endif;
+				
+				do_action('tmpl_custom_fields_'.$name.'_after'); 
+				do_action('tmpl_text_cutom_fields_settings',$custom_metaboxes,$session_variable,$post_type,$pkg_id,$val['name']);
+				break;
+			case "date":
+				/* Script for date picker */
+				
+				if(function_exists('tmpl_wp_is_mobile') && !tmpl_wp_is_mobile()){
+					?>     
+					<script type="text/javascript" async >
+						var dateToday = new Date();
+						jQuery(function(){
+							var pickerOpts = {						
+								showOn: "both",
+								dateFormat: 'yy-mm-dd',
+								/*buttonImage: "<?php echo TEMPL_PLUGIN_URL;?>css/datepicker/images/cal.png",*/
+								buttonText: '<i class="fa fa-calendar"></i>',
+								buttonImageOnly: false,
+								monthNames: objectL11tmpl.monthNames,
+								monthNamesShort: objectL11tmpl.monthNamesShort,
+								dayNames: objectL11tmpl.dayNames,
+								dayNamesShort: objectL11tmpl.dayNamesShort,
+								dayNamesMin: objectL11tmpl.dayNamesMin,
+								isRTL: objectL11tmpl.isRTL,
+								<?php
+								do_action("tmpl_min_date",$name);
+								?>
+								onChangeMonthYear: function(year, month, inst) {
+								jQuery("#<?php echo $name;?>").blur();
+								},
+								onSelect: function(dateText, inst) {
+								/*jQuery("#<?php echo $name;?>").focusin();*/
+								<?php
+								do_action("tmpl_min_date_select",$name);
+								?>
+								jQuery("#<?php echo $name;?>").blur();
+								}
+							};	
+							jQuery("#<?php echo $name;?>").datepicker(pickerOpts);
+						});
+					</script>
+					<?php 
+					$type="text";
+				}else{
+					$type ="date";
+				}	
+				do_action('tmpl_custom_fields_'.$name.'_before'); ?>
+				
+				<input type="<?php echo $type; ?>" <?php echo (wp_is_mobile()) ? '' : 'readonly="readonly"';?> name="<?php echo $name;?>" id="<?php echo $name;?>" class="textfield <?php echo $style_class;?>" value="<?php echo esc_attr(stripslashes($value)); ?>" size="25" <?php echo 	$extra_parameter;?> placeholder="<?php echo @$val['default']; ?>"/>
+				
+				<?php echo $is_required_msg;
+				
+				if($admin_desc!=""):?><div class="description"><?php echo $admin_desc; ?></div><?php endif;
+				
+				do_action('tmpl_custom_fields_'.$name.'_after'); ?>	          
+				<?php
+				break;
+			case "multicheckbox":
+				$options = $val['option_values'];				
+				$option_titles = $val['option_title'];	
+				if(!is_array($value))		{
+					if(strstr($value,','))
+					{							
+						update_post_meta($_REQUEST['pid'],$htmlvar_name,explode(',',$value));
+						$value=get_post_meta($_REQUEST['pid'],$htmlvar_name,true);
+					}
+				}
+				if(!isset($_REQUEST['pid']) && !isset($_REQUEST['backandedit']))
+				{
+					$default_value = explode(",",$val['default']);
+				}
+	
+				if($options)
+				{  
+					$chkcounter = 0;
+					echo '<div class="form_cat_left hr_input_multicheckbox">';
+					do_action('tmpl_custom_fields_'.$name.'_before');
+					$option_values_arr = explode(',',$options);
+					$option_titles_arr = explode(',',$option_titles);
+					for($i=0;$i<count($option_values_arr);$i++)
+					{
+						$chkcounter++;
+						$seled='';
+						if(isset($_REQUEST['pid']) || isset($_REQUEST['backandedit']))
+						  {
+							$default_value = $value;
+						  }
+						if($default_value !=''){
+						if(in_array($option_values_arr[$i],$default_value)){ 
+						$seled='checked="checked"';} }	
+						$option_titles_arr[$i] = (!empty($option_titles_arr[$i])) ? $option_titles_arr[$i] : $option_values_arr[$i];
+						echo '
+
+						<div class="form_cat">
+							
+								<input name="'.$key.'[]"  id="'.$key.'_'.$chkcounter.'" type="checkbox" value="'.$option_values_arr[$i].'" '.$seled.'  '.$extra_parameter.' /> <label for="'.$key.'_'.$chkcounter.'">'.$option_titles_arr[$i].'
+							</label>
+						</div>';
+					}
+					echo '</div>';
+					
+					echo $is_required_msg;
+					
+					if($admin_desc!=""):?><div class="description"><?php echo $admin_desc; ?></div><?php endif;
+					do_action('tmpl_custom_fields_'.$name.'_after');
+				}
+				break;  
+			case "texteditor":
+				do_action('tmpl_custom_fields_'.$name.'_before');
+				$media_buttons = apply_filters('tmpl_media_button_pro',false);
+				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+				
+				do_action('tmpl_texteditor_cutom_fields_settings',$custom_metaboxes,$session_variable,$post_type,$pkg_id,$val['name'],$submit_page_id);
+				/* Wp editor on submit form */
+				$settings =   apply_filters('tmpl_cf_wpeditor_settings',array(
+						'wpautop' => false,
+						'media_buttons' => $media_buttons,
+						'textarea_name' => $name,
+						'textarea_rows' => apply_filters('tmpl_wp_editor_rows',get_option('default_post_edit_rows',6)), /* rows="..."*/
+						'tabindex' => '',
+						'editor_css' => '<style>.wp-editor-wrap{width:640px;margin-left:0px;}</style>',
+						'editor_class' => '',
+						'toolbar1'=> 'bold,italic,underline,bullist,numlist,link,unlink,forecolor,undo,redo',
+						'teeny' => false,
+						'dfw' => false,
+						'tinymce' => true,
+						'quicktags' => false
+					));				
+				if(isset($value) && $value != '') 
+				{  $content=$value; 
+				}else{
+					$content= $val['default']; 
+				} 				
+				wp_editor( stripslashes($content), $name, apply_filters('tmpl_wp_editor_settings',$settings,$name));
+
+				echo $is_required_msg;
+
+				if($admin_desc!=""):?><div class="description"><?php echo $admin_desc; ?></div><?php endif;
+				
+				do_action('tmpl_custom_fields_'.$name.'_after');
+				do_action('tmpl_text_cutom_fields_settings',$custom_metaboxes,$session_variable,$post_type,$pkg_id,$val['name']);
+				break;
+		    case "textarea":
+				
+				do_action('tmpl_custom_fields_'.$name.'_before'); ?>
+				
+                <textarea name="<?php echo $name;?>" id="<?php echo $name;?>" class="<?php if($style_class != '') { echo $style_class;}?> textarea" <?php echo $extra_parameter;?> placeholder="<?php echo @$val['default']; ?>" rows="3"><?php if(isset($value))echo stripslashes($value);?></textarea>
+               	<?php echo $is_required_msg;
+				
+				if($admin_desc!=""):?><div class="description"><?php echo $admin_desc; ?></div><?php endif;
+				
+				do_action('tmpl_custom_fields_'.$name.'_after'); 
+				do_action('tmpl_textarea_cutom_fields_settings',$custom_metaboxes,$session_variable,$post_type,$pkg_id,$val['name']);
+				break;
+				
+		    case "radio":
+				
+				do_action('tmpl_custom_fields_'.$name.'_before'); 
+			
+				$options = $val['option_values'];
+				$option_title = $val['option_title'];
+				if($options)
+				{ 
+					$chkcounter = 0;
+					echo '<div class="form_cat_left">';
+					$option_values_arr = explode(',',$options);
+					$option_titles_arr = explode(',',$option_title);
+			
+					if($option_title ==''){  $option_titles_arr = $option_values_arr;  }
+					
+					echo '<ul class="hr_input_radio">';
+					for($i=0;$i<count($option_values_arr);$i++)
+					{
+						$chkcounter++;
+						$seled='';
+						
+						/* show radio button default selected when it is as cumpalsary field, otherwise all radiobuttons will ne unchecked */
+						if($val['is_require'] == 1 && empty($default_value) && empty($value))
+						{
+							if($i==0 && trim($value)==''){ $seled='checked="checked"';}	
+						}
+						elseif(trim($value) == $option_values_arr[$i])
+						{ $seled='checked="checked"';}
+						
+						if (isset($val['default']) && trim($val['default']) == trim($option_values_arr[$i])){ $seled='checked="checked"';}
+						$event_type = array("Regular event", "Recurring event");
+						
+						if($key == 'event_type'):
+							if (trim(@$value) == trim($event_type[$i])){ $seled="checked=checked";}
+							echo '<li>
+									<input name="'.$key.'" data-id="'.$option_values_arr[$i].'" id="'.$key.'_'.$chkcounter.'" type="radio" value="'.$event_type[$i].'" '.$seled.'  '.$extra_parameter.' /> <label for="'.$key.'_'.$chkcounter.'">'.$option_titles_arr[$i].'</label>
+								</li>';
+						else:
+							echo '<li><input name="'.$key.'"  data-id="'.$option_values_arr[$i].'" id="'.$key.'_'.$chkcounter.'" type="radio" value="'.$option_values_arr[$i].'" '.$seled.'  '.$extra_parameter.' /> <label for="'.$key.'_'.$chkcounter.'">'.$option_titles_arr[$i].'</label>
+								</li>';
+						endif;
+					}
+					echo '</ul>';	
+					
+					echo '</div>';
+				}
+				
+				echo $is_required_msg;
+				
+				if($admin_desc!=""):?><div class="description"><?php echo $admin_desc; ?></div><?php endif;
+				
+				do_action('tmpl_custom_fields_'.$name.'_after');
+				
+				break;
+		    case "select":
+			
+				if(@$_REQUEST['pid']) {
+					$value = get_post_meta($_REQUEST['pid'], $name,true);
+				}
+				
+				do_action('tmpl_custom_fields_'.$name.'_before'); ?>
+                <select name="<?php echo $name;?>" id="<?php echo $name;?>" class="textfield textfield_x <?php echo $style_class;?>" <?php echo $extra_parameter;?>>
+					<option value=""><?php _e("Please Select",'templatic');?></option>
+					<?php if($option_values){
+						/*$option_values_arr = explode(',',$option_values);*/
+						$option_title = ($val['option_title']) ? $val['option_title'] : $val['option_values'];
+						$option_values_arr = apply_filters('SelectBoxOptions',explode(',',$option_values),$name);
+						$option_title_arr = apply_filters('SelectBoxTitles',explode(',',$option_title),$name);
+						
+						for($i=0;$i<count($option_values_arr);$i++)
+						{
+							$selcted = '';
+							if($val['is_require'] == 1 && empty($default_value) && empty($value))
+							{
+								if($i==0 && trim($value)==''){ $selcted='selected="selected"';}	
+							}
+							elseif(trim($value) == trim($option_values_arr[$i]))
+							{ $selcted ='selected="selected"';}
+						?>
+						<option value="<?php echo $option_values_arr[$i]; ?>" <?php echo $selcted; ?>><?php echo $option_title_arr[$i]; ?></option>
+						<?php	
+						}
+					}?>
+				</select>
+                <?php echo $is_required_msg;
+				
+				if($admin_desc!=""):?><div class="description"><?php echo $admin_desc; ?></div><?php endif;
+				
+				do_action('tmpl_custom_fields_'.$name.'_after');
+				break;
+		    case "upload": ?>
+				<!-- html for image upload for submit form front end -->
+				<div class="upload_box <?php echo apply_filters('tmpl_cf_img_uploder_class',''); ?>">
+                 <div class="hide_drag_option_ie">
+					<p><?php _e('You can drag &amp; drop images from your computer to this box.','templatic'); ?></p>
+					<p><?php _e('OR','templatic'); ?></p>
+                 </div>
+					<?php
+					echo '<div class="tmpl_single_uploader">';
+						do_action('tmpl_custom_fields_'.$name.'_before');
+						$wp_upload_dir = wp_upload_dir();?>
+						
+						<!-- Save the uploaded image path in hidden fields -->
+						<input type="hidden" value="<?php echo stripslashes($value); ?>" name="<?php echo $name; ?>" id="<?php echo $name; ?>" class="fileupload uploadfilebutton"  placeholder="<?php echo @$val['default']; ?>"/>
+						<div id="<?php echo $name; ?>"></div>
+						
+						<div id="fancy-contact-form">
+							<div class="dz-default dz-message" ><span  id="fancy-<?php echo $name; ?>"><span><i class="fa fa-folder"></i>  <?php _e('Upload File','templatic'); ?></span></span></div>
+                            <?php
+							if(@$_REQUEST['pid']==''){
+							?>
+								<span  id="image-<?php echo $name; ?>"></span>
+                            <?php } ?>
+							<input type="hidden" name="submitted" value="1">
+						</div>
+						<script type="text/javascript" async >
+							var image_thumb_src = '<?php echo  get_template_directory_uri().'/images/tmp';?>/';
+							jQuery(document).ready(function(){
+								var settings = {
+									url: '<?php echo plugin_dir_url( __FILE__ ); ?>single-upload.php',
+									dragDrop:true,
+									fileName: "<?php echo $name; ?>",
+									allowedTypes:"<?php echo $allowed_type; ?>",	
+									returnType:"json",
+									multiple:false,
+									showDone:false,
+									showAbort:false,
+									showProgress:true,
+									onSubmit:function(files, xhr)
+									{
+										/*jQuery('.ajax-file-upload-statusbar').html('');*/
+									},
+									onSuccess:function(files,data,xhr)
+									{
+										jQuery('#image-<?php echo $name; ?>').html('');
+										if(jQuery('#img_<?php echo $name; ?>').length > 0)
+										{
+											jQuery('#img_<?php echo $name; ?>').remove();
+										}
+									    var img = jQuery('<img height="60px" width="60px" id="img_<?php echo $name; ?>">'); /*Equivalent: $(document.createElement('img'))*/
+									    data = data+'';
+										if(data != 'error'){
+											var id_name = data.split('.');
+											console.log(id_name);
+											if(id_name[1] == 'pdf')
+												var img_name = '<?php echo TEVOLUTION_PAGE_TEMPLATES_URL."/images/pdfthumb.png"; ?>';
+											else
+												var img_name = '<?php echo bloginfo('template_url')."/images/tmp/"; ?>'+id_name[0]+"."+id_name[1];	
+											
+											img.attr('src', img_name);
+											img.appendTo('#image-<?php echo $name; ?>');
+										}
+										else
+										{
+											jQuery('#image-<?php echo $name; ?>').html("<?php _e('Image can&rsquo;t be uploaded due to some error.','templatic'); ?>");
+											jQuery('.ajax-file-upload-statusbar').css('display','none');
+											return false;
+										}
+										jQuery('#image-<?php echo $name; ?>').css('display','');
+										jQuery('#<?php echo $name; ?>').val(image_thumb_src+data);
+										jQuery('.ajax-file-upload-filename').css('display','none');
+										jQuery('.ajax-file-upload-red').css('display','none');
+										jQuery('.ajax-file-upload-progress').css('display','none');
+									},
+									showDelete:true,
+									deleteCallback: function(data,pd)
+									{
+										for(var i=0;i<data.length;i++)
+										{
+											jQuery.post("<?php echo plugin_dir_url( __FILE__ ); ?>delete_image.php",{op:"delete",name:data[i]},
+											function(resp, textStatus, jqXHR)
+											{
+												/*Show Message  */
+												jQuery('#image-<?php echo $name; ?>').html("<div><?php _e('File Deleted','templatic');?></div>");
+												jQuery('#<?php echo $name; ?>').val('');
+											});
+										 }      
+										pd.statusbar.hide(); /*You choice to hide/not.*/
+
+									}
+								}
+								var uploadObj = jQuery("#fancy-"+'<?php echo $name; ?>').uploadFile(settings);
+							});
+							function single_delete_image(name,field_name)
+							{
+								jQuery.ajax({
+									 url: '<?php echo TEMPL_PLUGIN_URL; ?>tmplconnector/monetize/templatic-custom_fields/delete_image.php?op=delete&name='+name,
+									 type: 'POST',
+									 success:function(result){
+										jQuery('#image-'+field_name).html("<div>File Deleted</div>");
+										jQuery('#'+field_name).val('');			
+									}				 
+								 });
+							}
+						</script>
+						<?php do_action('tmpl_custom_fields_'.$name.'_after');
+						
+						/* check the format of uploaded file ( is image ??)*/
+						if($_REQUEST['pid'] || $_SESSION['custom_fields'][$name] != '' || $_REQUEST[$name] != ''):
+							if($_SESSION['custom_fields'][$name] != '')
+							{
+								$image = $_SESSION['custom_fields'][$name];
+							}
+							else
+							{
+								$image = get_post_meta($_REQUEST['pid'],$name, $single = true);
+							}
+							if(isset($_REQUEST[$name]) && $_REQUEST[$name] != '')
+							{
+								$image = $_REQUEST[$name];
+							}
+							$upload_file=strtolower(substr(strrchr($image,'.'),1));
+							if($upload_file =='jpg' || $upload_file =='jpeg' || $upload_file =='gif' || $upload_file =='png' || $upload_file =='jpg' ){
+									?>
+								<p id="image-<?php echo $name; ?>" class="resumback"><img height="60px" width="60px" src="<?php echo $image; ?>" /><span class="ajax-file-upload-red" onclick="single_delete_image('<?php echo basename($value);?>','<?php echo $name;?>')"><?php _e('Delete','templatic-admin'); ?></span></p>
+						<?php }elseif($upload_file != ''){ ?>
+								<p id="image-<?php echo $name; ?>" class="resumback"><a href="<?php echo get_post_meta($_REQUEST['pid'],$name, $single = true); ?>"><?php echo basename(get_post_meta($_REQUEST['pid'],$name, $single = true)); ?></a><span class="ajax-file-upload-red" onclick="single_delete_image('<?php echo basename($value);?>','<?php echo $name;?>')"><?php _e('Delete','templatic-admin'); ?></span></p>
+							<?php } 
+						endif; 
+						echo '</div>';
+						if($admin_desc!=""):?><div class="description"><?php echo $admin_desc; ?></div><?php endif; ?>
+				<?php echo $is_required_msg;?>
+				</div>
+			<?php	
+				break;
+				
+		    case "oembed_video": ?>
+			
+				<?php do_action('tmpl_custom_fields_'.$name.'_before'); ?>
+				
+				<input name="<?php echo $name;?>" id="<?php echo $name;?>" value='<?php if(isset($value) && $value!=''){ echo stripslashes($value); } ?>' type="text" class="textfield <?php echo $style_class;?>" <?php echo $extra_parameter; ?> <?php echo $extra_script;?> placeholder="<?php echo @$val['default']; ?>"/>
+				
+				<?php echo $is_required_msg;
+				if($admin_desc!=""):?>
+					<div class="description"><?php echo $admin_desc; ?></div>
+				<?php endif;
+				
+				do_action('tmpl_custom_fields_'.$name.'_after');
+				break;
+				
+		    case "range_type":
+			
+				$range_min=$val['range_min'];
+				$range_max=$val['range_max'];
+				global $validation_info;					
+				if($val['is_require']==0 && $range_min!="" && $range_max!='' && $val['search_ctype']=='slider_range'){
+					$validation_info[] = array(
+						'title'	       => $val['label'],
+						'name'	       => $key,
+						'espan'	       => $key.'_error',
+						'type'	       => $val['type'],
+						'text'	       => $val['text'],
+						'is_require'	  => 1,
+						'validation_type'=> 'digit',
+						'search_ctype'=> $val['search_ctype']
+					);
+				}
+				
+				do_action('tmpl_custom_fields_'.$name.'_before'); ?> 
+				
+			    <input name="<?php echo $name;?>" id="<?php echo $name;?>" value="<?php if(isset($value) && $value!=''){ echo stripslashes($value); } ?>" type="text" class="textfield <?php echo $style_class;?>" <?php echo $extra_parameter; ?> <?php echo $extra_script;?> placeholder="<?php echo @$val['default']; ?>" min="<?php echo $range_min?>" max="<?php echo $range_max?>"/>
+				<?php echo $is_required_msg;
+			  
+				if($admin_desc!=""):?><div class="description"><?php echo $admin_desc; ?></div><?php endif;
+			  
+				do_action('tmpl_custom_fields_'.$name.'_after'); 
+				
+				break;
+				
+			case "image_uploader":
+			
+				echo '<div class="upload_box">';
+					add_action('wp_footer','callback_on_footer_fn');?>
+                    <div class="hide_drag_option_ie">
+                        <p><?php _e('You can drag &amp; drop images from your computer to this box.','templatic'); ?></p>
+                        <p><?php _e('OR','templatic'); ?></p>
+                    </div>
+					<?php
+					include (apply_filters('include_image_upload_script',TEMPL_MONETIZE_FOLDER_PATH."templatic-custom_fields/image_uploader.php")); ?>
+                    <span class="message_note"><?php echo $admin_desc;?></span>
+                    <span class="message_error2" id="post_images_error"></span>
+					<span class="safari_error" id="safari_error"></span>
+				<?php
+				echo "</div>";
+				break;
+				
+		    case "geo_map":
+				include_once(TEMPL_MONETIZE_FOLDER_PATH."templatic-custom_fields/location_add_map.php"); 
+				
+				if($admin_desc == ''): ?>
+					<span class="message_note"><?php echo $GET_MAP_MSG;?></span>
+				<?php endif; 
+				break;
+		    default:
+				do_action('tevolution_custom_fieldtype',$key,$val,$post_type);
+		}
+		do_action('tmpl_cutom_fields_settings',$custom_metaboxes,$session_variable,$post_type,$pkg_id,$name);
+		/* Switch case end */
+
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		
+		do_action('show_new_custom_field',$type,$site_title,$is_required);
+		
+		?>     
+		 
+		</div>    
+		<?php
+		do_action('tmpl_custom_fields_'.$name.'_after_wrap');
+		}
+	}	
+}
+
+
+
+
+/* Fetch heading type custom fields. its display in custom field create or edit section */
+function fetch_heading_posts()
+{
+	global $post;
+	remove_all_actions('posts_where');
+	$heading_title = array();
+	/* Wp query passing argument for fetch is active heading type*/
+	$args=array('post_type'      => 'custom_fields',
+				'posts_per_page' => -1	,
+				'post_status'    => array('publish'),
+				'meta_query'     => array('relation' => 'AND',
+									   array('key' => 'ctype','value' => 'heading_type','compare' => '=','type'=> 'text'),
+									   array('key' => 'is_active','value' => '1','compare' => '=','type'=> 'text')
+									),
+				'meta_key'       => 'sort_order',
+				'orderby'        => 'meta_value_num',
+				'meta_value_num' =>'sort_order',
+				'order'          => 'ASC'
+				);
+	$post_query = null;
+	add_filter('posts_join', 'custom_field_posts_where_filter');
+	$post_query = new WP_Query($args);
+	remove_filter('posts_join', 'custom_field_posts_where_filter');
+	$post_meta_info = $post_query;
+	
+	if($post_meta_info){
+		while ($post_meta_info->have_posts()) : $post_meta_info->the_post();
+			$heading_title[$post->post_name] = $post->post_title;
+		endwhile;
+	}
+	return $heading_title;
+}
+
+/*
+	Return the categories array of taxonomy which we pass in argument
+*/
+function templ_get_parent_categories($taxonomy) {
+	$cat_args = array(
+	'taxonomy'=>$taxonomy,
+	'orderby' => 'name', 				
+	'hierarchical' => 'true',
+	'parent'=>0,
+	'hide_empty' => 0,	
+	'title_li'=>'');				
+	$categories = get_categories( $cat_args );	/* fetch parent categories */
+	return $categories;
+}
+/*
+	If we pass parent category ID and taxonomy in functions argument it will return all the child categories 
+*/
+function templ_get_child_categories($taxonomy,$parent_id) {
+	$args = array('child_of'=> $parent_id,'hide_empty'=> 0,'taxonomy'=>$taxonomy);                        
+	$child_cats = get_categories( $args );	/* get child cats */
+	return $child_cats;
+}
+
+/* 
+ Returns category custom fields html on submit page
+*/
+function display_custom_category_field_plugin($custom_metaboxes,$session_variable,$post_type,$cpost_type='post'){ 
+	
+	foreach($custom_metaboxes as $key=>$val) {
+		if($key == 'category'):
+		$name = $val['name'];
+		$site_title = $val['label'];
+		$type = $val['ctype'];
+		$htmlvar_name = $val['htmlvar_name'];
+		$admin_desc = $val['desc'];
+		$option_values = $val['option_values'];
+		$default_value = $val['default'];
+		$style_class = $val['style_class'];
+		$extra_parameter = $val['extra_parameter'];
+		if(!$extra_parameter){ $extra_parameter ='';}
+		/* Is required CHECK BOF */
+		$is_required = '';
+		$input_type = '';
+		if($val['is_require'] == '1'){
+			$is_required = '<span class="required">*</span>';
+			$is_required_msg = '<span id="'.$name.'_error" class="message_error2"></span>';
+		} else {
+			$is_required = '';
+			$is_required_msg = '';
+		}
+		/* Is required CHECK EOF */
+		if(@$_REQUEST['pid'])
+		{
+			$post_info = get_post($_REQUEST['pid']);
+			if($name == 'post_title') {
+				$value = $post_info->post_title;
+			}else {
+				$value = get_post_meta($_REQUEST['pid'], $name,true);
+			}
+			
+		}else if(isset($_SESSION[$session_variable]) && !empty($_SESSION[$session_variable]))
+		{
+			$value = @$_SESSION[$session_variable][$name];
+		}else{
+			$value='';
+		}
+	   
+	if($type=='post_categories'){
+		/* fetch catgories on action */	
+		wp_reset_query();
+		global $post;
+		$submit_post_type=get_post_meta($post->ID,'submit_post_type',true);
+		$PostTypeObject = get_post_type_object(($submit_post_type!='')?$submit_post_type:$cpost_type);
+		$_PostTypeName = $PostTypeObject->labels->name;
+		?>
+        <div class="form_row clearfix">	  
+            <label><?php echo $site_title.$is_required; ?></label>
+            <div class="category_label"><?php include(TEMPL_MONETIZE_FOLDER_PATH.'templatic-custom_fields/category.php');?></div>
+            <?php echo $is_required_msg;?>
+            <?php if($admin_desc!=""):?>
+            	<div class="description"><?php echo $admin_desc; ?></div>
+			<?php else: ?>
+            	<span class="message_note msgcat"><?php _e("Select a category for your ",'templatic'); echo strtolower($_PostTypeName); ?></span>
+            <?php endif;
+			
+			/* check the category wise custom fields are enable or not - load Ajax if cat wise custom fields option is selected */
+			
+			$templatic_settings = get_option('templatic_settings');
+		
+			if((!isset($templatic_settings['templatic-category_custom_fields']) && $templatic_settings['templatic-category_custom_fields']=='') || (isset($templatic_settings['templatic-category_custom_fields']) && $templatic_settings['templatic-category_custom_fields']=='No')){
+				$category_custom_fields = 0;
+			}else{
+				$category_custom_fields = 1;
+			}
+			?>
+			<input type="hidden" name="cat_fields" id="cat_fields" value="<?php echo $category_custom_fields; ?>"/>
+			<input type="hidden" name="cat_type" id="cat_type" value="<?php echo $templatic_settings['templatic-category_type']; ?>"/>
+        </div>    
+		<?php 
+	}elseif(isset($_REQUEST['upgpkg']) && $_REQUEST['upgpkg'] ==1 && $type=='post_categories'){
+		wp_reset_query();
+		global $post;
+		$PostTypeObject = get_post_type_object(get_post_meta($post->ID,'submit_post_type',true));
+		$_PostTypeName = $PostTypeObject->labels->name;
+
+		 ?>
+        <div class="form_row clearfix">        
+            <label><?php echo $_PostTypeName. __('Category','templatic').$is_required; ?></label>
+            <div class="category_label"><?php include(TEMPL_MONETIZE_FOLDER_PATH.'templatic-custom_fields/category.php');?></div>
+            <?php echo $is_required_msg;
+			
+			if($admin_desc!=""):?>
+            	<div class="description"><?php echo $admin_desc; ?></div>
+			<?php else:
+				$PostTypeObject = get_post_type_object($post_type);
+				$_PostTypeName = $PostTypeObject->labels->name;?>
+            	<span class="message_note msgcat"><?php _e("In which category you'd like to publish this ",'templatic'); echo strtolower($_PostTypeName) ."?"; ?></span>
+            <?php endif;?>
+        </div>    
+	<?php }
+	do_action('show_additional_custom_field',$type,$site_title,$is_required,$cpost_type);
+	endif;
+	}
+
+}
+
+/* This function use for display submit form custom fields category wise using jquery ajax.*/
+add_action( 'wp_ajax_nopriv_submit_category_custom_fields','tmpl_get_submit_category_custom_fields');
+add_action( 'wp_ajax_submit_category_custom_fields' ,'tmpl_get_submit_category_custom_fields');
+function tmpl_get_submit_category_custom_fields(){
+	
+	$post_type=$_REQUEST['post_type'];
+	$all_cat_id=$_REQUEST['category_id'];	
+	$pakg_id = $_REQUEST['pakg_id'];
+	$submit_page_id = $_REQUEST['submit_page_id'];
+	/*Get the taxonomy mane from  post type */
+	$taxonomies = get_object_taxonomies( (object) array( 'post_type' => $post_type,'public'   => true, '_builtin' => true ));
+	$taxonomy = $taxonomies[0];
+	
+	/*fetch heading type from post type */
+	$heading_type = fetch_heading_per_post_type($post_type);			
+	if(count($heading_type) > 0)
+	{
+		foreach($heading_type as $_heading_type){
+			/*custom fields for custom post type..*/
+			$custom_metaboxes[$_heading_type] = get_post_custom_fields_templ_plugin($post_type,$all_cat_id,$taxonomy,$_heading_type);
+		}
+	}else{
+		/*custom fields for custom post type..*/
+		$custom_metaboxes[] = get_post_custom_fields_templ_plugin($post_type,$all_cat_id,$taxonomy,'');
+	}	
+	
+	$validation_info=apply_filters('tevolution_submit_from_validation',$validation_info,$custom_metaboxes);
+	/* Display custom fields post type wuse */
+	/*display custom fields html on submit form.*/
+	display_custom_post_field_plugin($custom_metaboxes,'custom_fields',$post_type,$pakg_id,$submit_page_id);
+	/*action after custom fields*/
+	do_action('action_after_custom_fields',$custom_metaboxes,'custom_fields',$post_type,$pakg_id);
+	/* wp_editor load using jquery ajax script  */  
+	if (class_exists('_WP_Editors')) {
+		_WP_Editors::editor_js();
+	}
+	die();
+}
+
+
+
+/* 
+ * Display submit preview on popup model window 
+ * Load preview page template as per post type subit page
+ */
+add_action( 'wp_ajax_nopriv_tevolution_submit_from_preview','tmpl_get_tevolution_submit_from_preview');
+add_action( 'wp_ajax_tevolution_submit_from_preview' ,'tmpl_get_tevolution_submit_from_preview');
+function tmpl_get_tevolution_submit_from_preview(){
+	
+	$post_type=$_REQUEST['submit_post_type'];	
+	/* Do action for add additional post type preview page display hook */	
+	
+	do_action('before_tevolution_submit_'.$post_type.'_preview');
+	
+	get_template_part( 'tevolution-single', $post_type.'-preview'); 
+        
+	do_action('after_tevolution_submit_'.$post_type.'_preview');
+	
+	die();
+}
+
+/* 
+ * Display price package information while submission listing after selecting price package.
+ */
+add_action( 'wp_ajax_nopriv_tmpl_tevolution_submit_from_package_info','tmpl_tevolution_submit_from_package_info');
+add_action( 'wp_ajax_tmpl_tevolution_submit_from_package_info' ,'tmpl_tevolution_submit_from_package_info');
+function tmpl_tevolution_submit_from_package_info(){
+	$package_array = get_post($_REQUEST['pkg_id']);
+	$result = '';
+	$result .='<span class="label label-default">'.ucfirst($package_array->post_title);
+	if(get_post_meta($_REQUEST['pkg_id'],'package_amount',true) > 0 && isset($_REQUEST['pkg_subscribed']) && $_REQUEST['pkg_subscribed'] ==0) 
+	{ 
+		$result .= __(' Package with price ','templatic');
+		$result .= get_option('currency_symbol').get_post_meta($_REQUEST['pkg_id'],'package_amount',true); 
+	}
+	$result .='</span>';
+	echo $result;exit;
+}
+/* 
+ * Display category as per price package.
+ */
+add_action( 'wp_ajax_nopriv_tmpl_tevolution_submit_from_category','tmpl_tevolution_submit_from_category');
+add_action( 'wp_ajax_tmpl_tevolution_submit_from_category' ,'tmpl_tevolution_submit_from_category');
+function tmpl_tevolution_submit_from_category(){
+	global $include_cat_array;
+	
+	/* Set curent language in cookie */
+	if(is_plugin_active('wpml-translation-management/plugin.php')){
+		global $sitepress;
+		$_COOKIE['_icl_current_language'] = $sitepress->get_current_language();
+	}
+	
+	$post_type=$_REQUEST['submit_post_type'];
+	/*get the post type taxonomy */
+	$taxonomies = get_object_taxonomies( (object) array( 'post_type' => $post_type,'public'   => true, '_builtin' => true ));
+	$taxonomy = $taxonomies[0];
+	if(isset($_REQUEST['package_select']) && $_REQUEST['package_selec'] != '')
+	{
+		$_REQUEST['pkg_id'] = $_REQUEST['package_select'];
+	}
+	$pkg_id=$_REQUEST['pkg_id'];
+	/*Set the display category list on submit page  */
+	$include_cat_array=get_post_meta($pkg_id,'category',true);
+	if($include_cat_array!=''){
+		$include_cat_array=explode(',',$include_cat_array);
+	}
+	/*echo $post_type."==".$taxonomy."==".$pkg_id."==".$cat_array;*/
+	$default_custom_metaboxes = get_post_fields_templ_plugin($post_type,$all_cat_id,$taxonomy);/*custom fields for all category.*/
+	$category_custom_metaboxes['category']=$default_custom_metaboxes['category'];
+	/* Display post type category box */
+	
+	/*Unset action for get the category from package wise on submit form */
+	unset($_REQUEST['action']);	
+
+	/* Display Categort as per price package wise on submit form page */
+	display_custom_category_field_plugin($category_custom_metaboxes,'custom_fields','post',$post_type);/*displaty  post category html.	*/
+	do_action('action_after_custom_fields',$category_custom_metaboxes,'custom_fields',$post_type,$pkg_id);
+	die();
+}
+
+
+/* 
+ * Display featured option as per price package selected.
+ */
+add_action( 'wp_ajax_nopriv_tmpl_tevolution_submit_from_package_featured_option','tmpl_tevolution_submit_from_package_featured_option');
+add_action( 'wp_ajax_tmpl_tevolution_submit_from_package_featured_option' ,'tmpl_tevolution_submit_from_package_featured_option');
+function tmpl_tevolution_submit_from_package_featured_option(){
+	global $current_user,$post,$monetization;
+	if(isset($_REQUEST['package_select']) && $_REQUEST['package_select'] != '')
+	{
+		$_REQUEST['pkg_id'] = $_REQUEST['package_select'];
+	}
+	$post_type = $_REQUEST['submit_post_type'];
+	$result = '';
+	$result .= $monetization->tmpl_fetch_price_package_featured_option($current_user->ID,$post_type,$post->ID,$_REQUEST['pkg_id'],$_REQUEST['pkg_subscribed']);/*fetch the price package*/
+	echo $result;exit;
+}
+
+/* get the link of submit form . which post type pass in argument */
+
+if(!function_exists('tmpl_get_submitfrm_link')){
+	function tmpl_get_submitfrm_link($post_type){
+		global $current_user,$wp_query,$curauth;
+		/*$curauth =  $wp_query->get_queried_object();*/
+
+		if($current_user->ID == $curauth->ID)
+		{
+		/* query to get the submit form link, it will check the "submit_post_type" meta key is available with the value of pot type pass in arg*/
+		$args=array('post_type'=>'page',
+					'posts_per_page'=>-1,
+					'meta_query'     => array('relation' => 'AND',
+										array('key' => 'submit_post_type','value' => $post_type,'compare' => '=='),
+										array('key' => 'is_tevolution_submit_form','value' => '1','compare' => '==')
+										),
+					);
+		$post_query = new WP_Query($args);
+		$PostTypeObject = get_post_type_object($post_type);
+		$_PostTypelabel = $PostTypeObject->labels->name;
+		$submit_link='';
+		if($post_query->have_posts()){
+			while ($post_query->have_posts()) { $post_query->the_post();
+				$submit_link = __(' Head over to the ','templatic');
+				$submit_link .='<a href="'.get_permalink().'" target="_blank">'.__('Submit','templatic')." ".ucfirst($_PostTypelabel)." ".__('Form','templatic').'</a>';	
+				$submit_link .= __( ' to add one.', 'templatic' );
+			}
+		}
+		return $submit_link;
+		}
+	}
+}
+/* captcha validation while submit form */
+add_action( 'wp_ajax_nopriv_submit_form_recaptcha_validation','tmpl_submit_form_recaptcha_validation');
+add_action( 'wp_ajax_submit_form_recaptcha_validation' ,'tmpl_submit_form_recaptcha_validation');
+function tmpl_submit_form_recaptcha_validation(){	
+
+	$tmpdata = get_option('templatic_settings');
+	$display =(isset($tmpdata['user_verification_page']) && $tmpdata['user_verification_page'] != "")? $tmpdata['user_verification_page']:"";
+	if(isset($_SESSION['gotit']))
+	{
+		echo true;
+		exit();
+	}
+	if( in_array('submit',$display) ){
+	
+		/*fetch captcha private key*/
+		$privatekey = $tmpdata['secret'];
+		if($_REQUEST["g-recaptcha-response"]!="")
+		{
+			/*get the response from captcha that the entered captcha is valid or not*/
+			$response = wp_remote_get("https://www.google.com/recaptcha/api/siteverify?secret=".$privatekey."&response=".$_REQUEST["g-recaptcha-response"]."&remoteip=".getenv("REMOTE_ADDR"));
+			
+			/* show response error */
+			if ( is_wp_error( $response ) ) {
+				$error_message = $response->get_error_message();
+				echo __("Something went wrong: ","templatic"). $error_message.' <br/>';
+				echo __("Please contact your host provider.","templatic");
+				die;
+			}
+			
+			/*decode the captcha response*/
+			$responde_encode = json_decode($response['body']);
+			if (!$responde_encode->success) {				
+				$send_data['recaptcha_error']= __('Please fill the captcha form.','templatic');
+			}else{
+				$send_data['recaptcha_error']=true;
+				$_SESSION['gotit'] = true;
+				update_option('gotit',true);
+			}
+		}else{
+			$send_data['recaptcha_error']= __('Please fill the captcha form.','templatic');
+		}
+		echo $send_data['recaptcha_error'];
+	}else{
+		echo true;	
+	}
+	exit;
+}
+/* display payment options only when monetization is activated */
+add_action('action_before_html','show_payemnt_gateway_error');
+function show_payemnt_gateway_error()
+{
+	 ?>
+	<span style="color:red;font-weight:bold;display:block;" id="payment_errors"><?php 
+		if(isset($_REQUEST['paypalerror']) && $_REQUEST['paypalerror']=='yes'){
+			echo $_SESSION['paypal_errors'];
+		}
+		if(isset($_REQUEST['eway_error']) && $_REQUEST['eway_error']=='yes'){
+			echo $_SESSION['display_message'];
+		}
+		if(isset($_REQUEST['stripeerror']) && $_REQUEST['stripeerror']=='yes'){
+			echo $_SESSION['stripe_errors'];
+		}
+		if(isset($_REQUEST['psigateerror']) && $_REQUEST['psigateerror']=='yes'){
+			echo $_SESSION['psigate_errors'];
+		}
+		if(isset($_REQUEST['braintreeerror']) && $_REQUEST['braintreeerror']=='yes'){
+			echo $_SESSION['braintree_errors'];
+		}
+		if(isset($_REQUEST['inspire_commerceerror']) && $_REQUEST['inspire_commerceerror']=='yes'){
+			echo $_SESSION['inspire_commerce_errors'];
+		}
+		echo '</span>';    
+}
+/* 
+	Its return the array of default custom fields with fields informations like "post title","post excerpt","post categories" etc.  
+*/
+function get_post_fields_templ_plugin($post_types,$category_id='',$taxonomy='') {
+	global $post;
+	remove_all_actions('posts_where');
+	$tmpdata = get_option('templatic_settings');	
+	$args=array('post_type' => 'custom_fields',
+				'posts_per_page' => -1	,
+				'post_status' => array('publish'),
+				'meta_query' => array('relation' => 'AND',
+								array('key' => 'post_type_'.$post_types.'','value' => array($post_types,'all'),'compare' => 'IN','type'=> 'text'),
+								array('key' => 'show_on_page','value' =>  array('user_side','both_side'),'compare' => 'IN','type'=> 'text'),
+								array('key' => 'is_submit_field', 'value' =>  '1','compare' => '='),
+							),
+				'meta_key' => 'sort_order',
+				'orderby' => 'meta_value_num',
+				'meta_value_num'=>'sort_order',
+				'order' => 'ASC'
+		);
+	
+	if((isset($_REQUEST['pid']) && $_REQUEST['pid']!='' && isset($_REQUEST['action']) && $_REQUEST['action']=='edit') || (isset($_REQUEST['action_edit']) && $_REQUEST['action_edit']=='edit')){
+		/* Unset is submit field  on edit listing page for display all custom fields post type wise*/			
+		unset($args['meta_query'][2]);	
+	}
+	$post_query = null;
+	$post_query = new WP_Query($args);	
+	$post_meta_info = $post_query;
+	$return_arr = array();
+	if($post_meta_info){
+		while ($post_meta_info->have_posts()) : $post_meta_info->the_post();
+			$is_active=get_post_meta($post->ID,"is_active",true);
+			$ctype=get_post_meta($post->ID,"ctype",true);
+			/*Custom fields loop returns if is active not equal to one or ctype equal to heading type */
+			if($is_active!=1 || $ctype=='heading_type'){
+				continue;
+			}
+			if(get_post_meta($post->ID,"ctype",true)){
+				$options = explode(',',get_post_meta($post->ID,"option_values",true));
+			}
+			$custom_fields = array(
+					"name"		=> get_post_meta($post->ID,"htmlvar_name",true),
+					"label" 	=> $post->post_title,
+					"htmlvar_name" 	=> get_post_meta($post->ID,"htmlvar_name",true),
+					"default" 	=> get_post_meta($post->ID,"default_value",true),
+					"ctype" 		=> get_post_meta($post->ID,"ctype",true),
+					"desc"      =>  $post->post_content,
+					"option_values" => get_post_meta($post->ID,"option_values",true),
+					"is_require"  => get_post_meta($post->ID,"is_require",true),
+					"is_active"  => get_post_meta($post->ID,"is_active",true),
+					"show_on_listing"  => get_post_meta($post->ID,"show_on_listing",true),
+					"show_on_detail"  => get_post_meta($post->ID,"show_on_detail",true),
+					"validation_type"  => get_post_meta($post->ID,"validation_type",true),
+					"style_class"  => get_post_meta($post->ID,"style_class",true),
+					"extra_parameter"  => get_post_meta($post->ID,"extra_parameter",true),
+					"show_in_email" =>get_post_meta($post->ID,"show_in_email",true),
+					"heading_type" => get_post_meta($post->ID,"heading_type",true),
+					);
+			if($options)
+			{
+				$custom_fields["options"]=$options;
+			}
+			$return_arr[get_post_meta($post->ID,"htmlvar_name",true)] = $custom_fields;
+		endwhile;
+	}
+	return $return_arr;
+}
+
+/*
+Display the categories check box like wordpress - wp-admin/includes/meta-boxes.php
+ */
+function tev_wp_terms_checklist($post_id = 0, $args = array()) {
+	global  $cat_array;
+ 	$defaults = array(
+		'descendants_and_self' => 0,
+		'selected_cats' => false,
+		'popular_cats' => false,
+		'walker' => null,
+		'taxonomy' => 'category',
+		'checked_ontop' => true
+	);
+
+	if(isset($_REQUEST['backandedit']) != '' || (isset($_REQUEST['pid']) && $_REQUEST['pid']!="") ){
+		$place_cat_arr = $cat_array;
+		$post_id = $_REQUEST['pid'];
+	}
+	else
+	{
+		if(!empty($cat_array)){
+			for($i=0; $i < count($cat_array); $i++){
+				$place_cat_arr[] = @$cat_array[$i]->term_taxonomy_id;
+			}
+		}
+	}
+	$args = apply_filters( 'wp_terms_checklist_args', $args, $post_id );
+	$template_post_type = get_post_meta($post->ID,'submit_post_type',true);
+	extract( wp_parse_args($args, $defaults), EXTR_SKIP );
+
+	if ( empty($walker) || !is_a($walker, 'Walker') )
+		$walker = new Tev_Walker_Category_Checklist;
+
+	$descendants_and_self = (int) $descendants_and_self;
+
+	$args = array('taxonomy' => $taxonomy);
+
+	$tax = get_taxonomy($taxonomy);
+	$args['disabled'] = !current_user_can($tax->cap->assign_terms);
+
+	if ( is_array( $selected_cats ) )
+		$args['selected_cats'] = $selected_cats;
+	elseif ( $post_id && (!isset($_REQUEST['upgpkg']) && !isset($_REQUEST['renew'])) )
+		$args['selected_cats'] = wp_get_object_terms($post_id, $taxonomy, array_merge($args, array('fields' => 'ids')));
+	else
+		$args['selected_cats'] = array();
+
+	if ( is_array( $popular_cats ) )
+		$args['popular_cats'] = $popular_cats;
+	else
+		$args['popular_cats'] = get_terms( $taxonomy, array( 'get' => 'all', 'fields' => 'ids', 'orderby' => 'count', 'order' => 'DESC', 'hierarchical' => false ) );
+
+	if ( $descendants_and_self ) {
+		$categories = (array) get_terms($taxonomy, array( 'child_of' => $descendants_and_self, 'hierarchical' => 0, 'hide_empty' => 0 ) );
+		$self = get_term( $descendants_and_self, $taxonomy );
+		array_unshift( $categories, $self );
+	} else {
+		$categories = (array) get_terms($taxonomy, array('get' => 'all'));
+	}
+
+	if ( $checked_ontop ) {
+		/* Post process $categories rather than adding an exclude to the get_terms() query to keep the query the same across all posts (for any query cache)*/
+		$checked_categories = array();
+		$keys = array_keys( $categories );
+		$c=0;
+		foreach( $keys as $k ) {
+			if ( in_array( $categories[$k]->term_id, $args['selected_cats'] ) ) {
+				$checked_categories[] = $categories[$k];
+				unset( $categories[$k] );
+			}
+		}
+
+		/* Put checked cats on top*/
+		echo call_user_func_array(array(&$walker, 'walk'), array($checked_categories, 0, $args));
+	}
+	/* Then the rest of them*/
+	echo call_user_func_array(array(&$walker, 'walk'), array($categories, 0, $args));
+	if(empty($categories) && empty($checked_categories)){
+		echo '<span style="font-size:12px; color:red;">'.sprintf(__('You have not created any category for %s post type. So, this listing will be submited as uncategorized.','templatic'),$template_post_type).'</span>';
+	}
+}
+
+/**
+ * Walker to output an unordered list of category checkbox <input> elements.
+ *
+ */
+class Tev_Walker_Category_Checklist extends Walker {
+	var $tree_type = 'category';
+	var $db_fields = array ('parent' => 'parent', 'id' => 'term_id'); /*TODO: decouple this*/
+    var $selected_cats = array();
+
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent = str_repeat("\t", $depth);
+		$output .= "$indent<ul class='children'>\n";
+	}
+
+	function end_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent = str_repeat("\t", $depth);
+		$output .= "$indent</ul>\n";
+	}
+
+	function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
+		extract($args);
+		global $include_cat_array;
+		/* Check term id in include cart array if not in include cart array then continue loop  for display category price package wise set */
+		if(is_array($include_cat_array) && !in_array($category->term_id,$include_cat_array) && !in_array('all',$include_cat_array)){			
+			return ;
+		}
+		/* finish display price package wise category */
+		if ( empty($taxonomy) )
+			$taxonomy = 'category';
+
+		if ( $taxonomy == 'category' )
+			$name = 'post_category';
+		else
+			$name = 'tax_input['.$taxonomy.']';
+
+		$selected = array();
+		if($category->term_price !='' &&  $category->term_price!='0' ){$cprice = "&nbsp;(".display_amount_with_currency_plugin($category->term_price).")"; }else{ $cprice =''; }
+		$disabled = '';
+		if(isset($_REQUEST['pid']) && $_REQUEST['pid']!=""){
+			$edit_id = $_REQUEST['pid'];
+			/*get the submited price package */
+			$pkg_id=get_post_meta($edit_id,'package_select',true);
+			$pkg_category=explode(',',get_post_meta($pkg_id,'category',true));
+			/* check category on price package selected catgeory if category not in price package category then return output */
+			if(!empty($pkg_category) && $pkg_category[0]!='' && !in_array($category->term_id,$pkg_category) && !in_array('all',$pkg_category)){				
+				return $output;	
+			}
+		}
+		if((isset($edit_id) && $edit_id !='' && (!isset($_REQUEST['renew']))) && !isset($_REQUEST['backandedit']) )
+		{
+			if(checked( in_array( $category->term_id, $selected_cats ), true, false ) == " checked='checked'" && @$category->term_price > 0)
+			{
+				$disabled = "disabled='disabled'";
+			}
+		}
+		/* set category price as zero if price is not set */
+		$cat_price = ($category->term_price) ? $category->term_price : 0;
+		/*	$class = in_array( $category->term_id, $popular_cats ) ? ' class="popular-category"' : '';*/
+		$output .= "\n<li id='{$taxonomy}-{$category->term_id}'>" . '<label class="selectit"><input data-value="'.$category->term_id.'" value="' . $category->term_id . ','.$cat_price.'" type="checkbox" name="category[]" id="in-'.$taxonomy.'-' . $category->term_id . '" '.$disabled.'  ' . checked( in_array( $category->term_id, $selected_cats ), true, false ) .    ' /> ' . esc_html( apply_filters('the_category', $category->name )) . $cprice.'</label>';
+	}
+
+	function end_el( &$output, $category, $depth = 0, $args = array() ) {
+		$output .= "</li>\n";
+	}
+}
+/* 
+	Return the upload image directory , where uploaded file will move
+*/
+function get_image_phy_destination_path_plugin()
+{	
+	$wp_upload_dir = wp_upload_dir();
+	$path = $wp_upload_dir['path'];
+	$url = $wp_upload_dir['url'];
+	  $destination_path = $path."/";
+      if (!file_exists($destination_path)){
+      $imagepatharr = explode('/',str_replace(ABSPATH,'', $destination_path));
+	   $year_path = ABSPATH;
+		for($i=0;$i<count($imagepatharr);$i++)
+		{
+		  if($imagepatharr[$i])
+		  {
+			$year_path .= $imagepatharr[$i]."/";
+			  if (!file_exists($year_path)){
+				  mkdir($year_path, 0777);
+			  }     
+			}
+		}
+	}
+	  return $destination_path;
+}
+/*
+ * get the heading type for selected post type
+ */
+function tmpl_fetch_heading_post_type($post_type){
+	
+	global $post,$heading_title;
+	$cur_lang_code=(is_plugin_active('sitepress-multilingual-cms/sitepress.php'))? ICL_LANGUAGE_CODE :'';
+	
+	remove_all_actions('posts_where');
+	remove_action('pre_get_posts','event_manager_pre_get_posts');
+	remove_action('pre_get_posts','directory_pre_get_posts',12);
+	remove_action('pre_get_posts','location_pre_get_posts',12);
+	add_filter('posts_join', 'custom_field_posts_where_filter');
+	$heading_title = array();
+	$args=
+	array( 
+	'post_type' => 'custom_fields',
+	'posts_per_page' => -1	,
+	'post_status' => array('publish'),
+	'meta_query' => array(
+		'relation' => 'AND',
+		array(
+			'key' => 'ctype',
+			'value' => 'heading_type',
+			'compare' => '=',
+			'type'=> 'text'
+		),
+		array(
+			'key' => 'post_type',
+			'value' => $post_type,
+			'compare' => 'LIKE',
+			'type'=> 'text'
+		)
+		
+	),
+	'meta_key' => 'sort_order',	
+	'orderby' => 'meta_value_num',
+	'meta_value_num'=>'sort_order',
+	'order' => 'ASC'
+	);
+	$post_query = null;
+	remove_all_actions('posts_orderby');
+	
+	$post_query = get_transient( '_tevolution_query_heading'.trim($post_type).$cur_lang_code);
+	if ( false === $post_query && get_option('tevolution_cache_disable')==1){
+		$post_query = new WP_Query($args);
+		set_transient( '_tevolution_query_heading'.trim($post_type).$cur_lang_code, $post_query, 12 * HOUR_IN_SECONDS );
+	}elseif(get_option('tevolution_cache_disable')==''){
+		$post_query = new WP_Query($args);
+	}
+	
+	$post_meta_info = $post_query;	
+	if($post_meta_info){
+		while ($post_meta_info->have_posts()) : $post_meta_info->the_post();
+			$otherargs=
+			array( 
+			'post_type' => 'custom_fields',
+			'posts_per_page' => -1	,
+			'post_status' => array('publish'),
+			'meta_query' => array(
+				'relation' => 'AND',
+				array(
+					'key' => 'is_active',
+					'value' => '1',
+					'compare' => '=',
+					'type'=> 'text'
+				),
+				array(
+					'key' => $post_type.'_heading_type',
+					'value' => $post->post_title,
+					'compare' => '=',
+					'type'=> 'text'
+				)
+			));		
+			
+			$other_post_query = null;
+			$htmlvar_name=get_post_meta(get_the_ID(),'htmlvar_name',true);
+			$other_post_query = get_transient( '_tevolution_query_heading'.trim($post_type).trim($htmlvar_name).$cur_lang_code );			
+			if ( false === $other_post_query  && get_option('tevolution_cache_disable')==1) {
+				$other_post_query = new WP_Query($otherargs);				
+				set_transient( '_tevolution_query_heading'.trim($post_type).trim($htmlvar_name).$cur_lang_code, $other_post_query, 12 * HOUR_IN_SECONDS );
+			}elseif(get_option('tevolution_cache_disable')==''){				
+				$other_post_query = new WP_Query($otherargs);
+			}
+			
+			if(count($other_post_query->post) > 0)
+			{
+				$heading_title[$htmlvar_name] = $post->post_title;
+			}
+		endwhile;
+		wp_reset_query();
+	}
+	remove_filter('posts_join', 'custom_field_posts_where_filter');
+	return $heading_title;
+}
+/* function will return the fields which we shows by default on detail page.
+we create the separate function because we needs want the variables name without heading type*/
+if(!function_exists('tmpl_single_page_default_custom_field')){
+function tmpl_single_page_default_custom_field($post_type){
+	
+	/* check its detail page or preview page */
+	if((is_single() || $_REQUEST['ptype']=='preview') && $post_type !=''){
+		global $post,$tmpl_flds_varname;
+		
+		$package_select=get_post_meta($post->ID,'package_select',true);
+		$field_monetiz_custom_fields = get_post_meta($package_select,'custom_fields',true);
+		if($field_monetiz_custom_fields == ''){
+			$field_monetiz_custom_fields = array();
+		}
+		
+		
+		
+		$cur_lang_code=(is_plugin_active('sitepress-multilingual-cms/sitepress.php'))? ICL_LANGUAGE_CODE :'';
+		
+		remove_all_actions('posts_where');		
+		remove_action('pre_get_posts','event_manager_pre_get_posts');
+		remove_action('pre_get_posts','directory_pre_get_posts',12);
+		add_filter('posts_join', 'custom_field_posts_where_filter');
+
+		$args = apply_filters('tmpl_custom_fileds_query',array( 'post_type' => 'custom_fields',
+					'posts_per_page' => -1	,
+					'post_status' => array('publish'),
+					'meta_query' => array('relation' => 'AND',
+									array(
+										'key'     => 'post_type_'.$post_type.'',
+										'value'   => $post_type,
+										'compare' => '=',
+										'type'    => 'text'
+									),		
+									array(
+										'key'     => 'is_active',
+										'value'   =>  '1',
+										'compare' => '='
+									),
+									array(
+										'key'     => 'show_on_detail',
+										'value'   =>  '1',
+										'compare' => '='
+									)
+								),
+					'meta_key' => 'sort_order',
+					'orderby' => 'meta_value',
+					'order' => 'ASC'
+		),$post_type);
+	
+		/* save the data on transient to get the fast results */
+                $post_query = null;
+		$post_query = get_transient( '_tevolution_query_single'.trim($post_type).$cur_lang_code );
+		if ( false === $post_query && get_option('tevolution_cache_disable')==1 ) {
+			$post_query = new WP_Query($args);
+			set_transient( '_tevolution_query_single'.trim($post_type).$cur_lang_code, $post_query, 12 * HOUR_IN_SECONDS );
+		}elseif(get_option('tevolution_cache_disable')==''){
+			$post_query = new WP_Query($args);
+		}
+		
+		/* Join to make the custom fields WPML compatible */
+		remove_filter('posts_join', 'custom_field_posts_where_filter');
+		
+		$tmpl_flds_varname='';
+		if($post_query->have_posts())
+		{
+			/* Only related field option get - reduce query */
+			$multi_option = array('multicheckbox','radio','select');
+			while ($post_query->have_posts()) : $post_query->the_post();
+			
+				if(is_plugin_active('Tevolution-FieldsMonetization/fields_monetization.php') && !in_array($post->ID, $field_monetiz_custom_fields) && !empty($field_monetiz_custom_fields)){
+
+						continue;
+
+				}
+			
+				$ctype = get_post_meta($post->ID,'ctype',true);
+				$post_name=get_post_meta($post->ID,'htmlvar_name',true);
+				$style_class=get_post_meta($post->ID,'style_class',true);
+				
+                $option_title = get_post_meta($post->ID,'option_title',true);
+				$option_values = get_post_meta($post->ID,'option_values',true);
+				
+				$default_value=get_post_meta($post->ID,'default_value',true);
+				$tmpl_flds_varname[$post_name] = array( 'type'=>$ctype,
+														'label'=> $post->post_title,
+														'style_class'=>$style_class,
+														'option_title'=>$option_title,
+														'option_values'=>$option_values,
+														'default'=>$default_value,
+														'fid'=>$post->ID
+													);			
+			endwhile;
+			wp_reset_query();
+		}
+		return $tmpl_flds_varname;
+	}
+    }
+}
+/* Return User name while submit form as a guest user */
+function get_user_name_plugin($fname,$lname='')
+{
+	global $wpdb;
+	if($lname)
+	{
+		$uname = $fname.'-'.$lname;
+	}else
+	{
+		$uname = $fname;
+	}
+	$nicename = strtolower(str_replace(array("'",'"',"?",".","!","@","#","$","%","^","&","*","(",")","-","+","+"," "),array('','','','-','','-','-','','','','','','','','','','-','-',''),$uname));
+	$nicenamecount = $wpdb->get_var("select count(user_nicename) from $wpdb->users where user_nicename like \"$nicename\"");
+	if($nicenamecount > 1)
+	{
+		$lastuid = $wpdb->get_var("select max(ID) from $wpdb->users");
+		return $nicename.'-'.$lastuid;
+	}else
+	{
+		
+		return trim($nicename);
+	}
+}
+
+/* 
+	Return the site/admin email
+*/
+if(!function_exists('get_site_emailId_plugin')) {
+	function get_site_emailId_plugin()
+	{
+		$generalinfo = get_option('mysite_general_settings');
+
+		if($generalinfo['site_email']) {
+			return $generalinfo['site_email'];
+		} else {
+			return get_option('admin_email');
+		}
+	}
+}
+
+/*  Here I made an array of user custom fields */
+if(!function_exists('user_fields_array')){
+function user_fields_array()
+{
+	global $post;
+	remove_all_actions('posts_where');
+	$user_args=
+	array( 'post_type' => 'custom_user_field',
+	'posts_per_page' => -1	,
+	'post_status' => array('publish'),
+	'meta_query' => array(
+	   'relation' => 'AND',
+		array(
+			'key' => 'on_registration',
+			'value' =>  '1',
+			'compare' => '='
+		)
+	),
+	'meta_key' => 'sort_order',
+	'orderby' => 'meta_value',
+	'order' => 'ASC'
+	);
+	$user_meta_sql = null;
+	$user_meta_sql = new WP_Query($user_args);
+	if($user_meta_sql) {
+	while ($user_meta_sql->have_posts()) : $user_meta_sql->the_post();
+	$name = $post->post_name;
+	$site_title = $post->post_title;
+	$type = get_post_meta($post->ID,'ctype',true);
+	$is_require = get_post_meta($post->ID,'is_require',true);
+	$admin_desc = $post->post_content;
+	$option_values = get_post_meta($post->ID,'option_values',true);
+	$on_registration = get_post_meta($post->ID,'on_registration',true);
+	$on_profile = get_post_meta($post->ID,'on_profile',true);
+	$on_author_page =  get_post_meta($post->ID,'on_author_page',true);
+	if($type=='text'){
+		$form_fields_usermeta[$name] = array(
+		"label"		=> $site_title,
+		"type"		=>	'text',
+		"default"	=>	$default_value,
+		"extra"		=>	'id="'.$name.'" size="25" class="textfield"',
+		"is_require"	=>	$is_require,
+		"outer_st"	=>	'<div class="form_row clearfix">',
+		"outer_end"	=>	'</div>',
+		"tag_st"	=>	'',
+		"tag_end"	=>	'<span class="message_note">'.$admin_desc.'</span>',
+		"on_registration"	=>	$on_registration,
+		"on_profile"	=>	$on_profile,
+		"on_author_page" => $on_author_page,
+		);
+	}elseif($type=='checkbox'){
+		$form_fields_usermeta[$name] = array(
+		"label"		=> $site_title,
+		"type"		=>	'checkbox',
+		"default"	=>	$default_value,
+		"extra"		=>	'id="'.$name.'" size="25" class="checkbox"',
+		"is_require"	=>	$is_require,
+		"outer_st"	=>	'<div class="form_row clearfix checkbox_field">',
+		"outer_end"	=>	'',
+		"tag_st"	=>	'',
+		"tag_end"	=>	'<span class="message_note">'.$admin_desc.'</span></div>',
+		"on_registration"	=>	$on_registration,
+		"on_profile"	=>	$on_profile,
+		"on_author_page" => $on_author_page,
+		);
+	}elseif($type=='textarea'){
+		$form_fields_usermeta[$name] = array(
+		"label"		=> $site_title,
+		"type"		=>	'textarea',
+		"default"	=>	$default_value,
+		"extra"		=>	'id="'.$name.'" size="25" class="textarea"',
+		"is_require"	=>	$is_require,
+		"outer_st"	=>	'<div class="form_row clearfix">',
+		"outer_end"	=>	'</div>',
+		"tag_st"	=>	'',
+		"tag_end"	=>	'<span class="message_note">'.$admin_desc.'</span>',
+		"on_registration"	=>	$on_registration,
+		"on_profile"	=>	$on_profile,
+		"on_author_page" => $on_author_page,
+		);
+		
+	}elseif($type=='texteditor'){
+		$form_fields_usermeta[$name] = array(
+		"label"		=> $site_title,
+		"type"		=>	'texteditor',
+		"default"	=>	$default_value,
+		"extra"		=>	'id="'.$name.'" size="25" class="mce"',
+		"is_require"	=>	$is_require,
+		"outer_st"	=>	'<div class="form_row clear">',
+		"outer_end"	=>	'</div>',
+		"tag_before"=>	'<div class="clear">',
+		"tag_after"=>	'</div>',
+		"tag_st"	=>	'',
+		"tag_end"	=>	'<span class="message_note">'.$admin_desc.'</span>',
+		"on_registration"	=>	$on_registration,
+		"on_profile"	=>	$on_profile,
+		"on_author_page" => $on_author_page,
+		);
+	}elseif($type=='select'){
+		/*$option_values=explode(",",$option_values );*/
+		$form_fields_usermeta[$name] = array(
+		"label"		=> $site_title,
+		"type"		=>	'select',
+		"default"	=>	$default_value,
+		"extra"		=>	'id="'.$name.'"',
+		"options"	=> 	$option_values,
+		"is_require"	=>	$is_require,
+		"outer_st"	=>	'<div class="form_row clear">',
+		"outer_end"	=>	'</div>',
+		"tag_st"	=>	'',
+		"tag_end"	=>	'',
+		"on_registration"	=>	$on_registration,
+		"on_profile"	=>	$on_profile,
+		"on_author_page" => $on_author_page,
+		);
+	}elseif($type=='radio'){
+		/*$option_values=explode(",",$option_values );*/
+		$form_fields_usermeta[$name] = array(
+			"label"		=> $site_title,
+			"type"		=>	'radio',
+			"default"	=>	$default_value,
+			"extra"		=>	'',
+			"options"	=> 	$option_values,
+			"is_require"	=>	$is_require,
+			"outer_st"	=>	'<div class="form_row clear">',
+			"outer_end"	=>	'</div>',
+			"tag_before"=>	'<div class="form_cat">',
+			"tag_after"=>	'</div>',
+			"tag_st"	=>	'',
+			"tag_end"	=>	'<span class="message_note">'.$admin_desc.'</span>',
+			"on_registration"	=>	$on_registration,
+			"on_profile"	=>	$on_profile,
+			"on_author_page" => $on_author_page,
+			);
+	}elseif($type=='multicheckbox'){
+		/*$option_values=explode(",",$option_values );*/
+		$form_fields_usermeta[$name] = array(
+			"label"		=> $site_title,
+			"type"		=>	'multicheckbox',
+			"default"	=>	$default_value,
+			"extra"		=>	'',
+			"options"	=> 	$option_values,
+			"is_require"	=>	$is_require,
+			"outer_st"	=>	'<div class="form_row clear">',
+			"outer_end"	=>	'</div>',
+			"tag_before"=>	'<div class="form_cat">',
+			"tag_after"=>	'</div>',
+			"tag_st"	=>	'',
+			"tag_end"	=>	'<span class="message_note">'.$admin_desc.'</span>',
+			"on_registration"	=>	$on_registration,
+			"on_profile"	=>	$on_profile,
+			"on_author_page" => $on_author_page,
+			);
+	
+	}elseif($type=='date'){
+		$form_fields_usermeta[$name] = array(
+		"label"		=> $site_title,
+		"type"		=>	'date',
+		"default"	=>	$default_value,
+		"extra"		=>	'id="'.$name.'" size="25" class="textfield_date"',
+		"is_require"	=>	$is_require,
+		"outer_st"	=>	'<div class="form_row clearfix">',
+		"outer_end"	=>	'</div>',		
+		"tag_end"	=>	'<span class="message_note">'.$admin_desc.'</span>',
+		"on_registration"	=>	$on_registration,
+		"on_profile"	=>	$on_profile,
+		"on_author_page" => $on_author_page,
+		);
+		
+	}elseif($type=='upload'){
+	$form_fields_usermeta[$name] = array(
+		"label"		=> $site_title,
+		"type"		=>	'upload',
+		"default"	=>	$default_value,
+		"extra"		=>	'id="'.$name.'" class="textfield"',
+		"is_require"	=>	$is_require,
+		"outer_st"	=>	'<div class="form_row clearfix upload_img">',
+		"outer_end"	=>	'</div>',
+		"tag_st"	=>	'',
+		"tag_end"	=>	'<span class="message_note">'.$admin_desc.'</span>',
+		"on_registration"	=>	$on_registration,
+		"on_profile"	=>	$on_profile,
+		"on_author_page" => $on_author_page,
+		);
+	}elseif($type=='head'){
+	$form_fields_usermeta[$name] = array(
+		"label"		=> $site_title,
+		"type"		=>	'head',
+		"outer_st"	=>	'<h5 class="form_title">',
+		"outer_end"	=>	'</h5>',
+		);
+	}elseif($type=='geo_map'){
+	$form_fields_usermeta[$name] = array(
+		"label"		=> '',
+		"type"		=>	'geo_map',
+		"default"	=>	$default_value,
+		"extra"		=>	'',
+		"is_require"	=>	$is_require,
+		"outer_st"	=>	'',
+
+		"outer_end"	=>	'',
+		"tag_st"	=>	'',
+		"tag_end"	=>	'',
+		"on_registration"	=>	$on_registration,
+		"on_profile"	=>	$on_profile,
+		"on_author_page" => $on_author_page,
+		);		
+	}elseif($type=='image_uploader'){
+	$form_fields_usermeta[$name] = array(
+		"label"		=> '',
+		"type"		=>	'image_uploader',
+		"default"	=>	$default_value,
+		"extra"		=>	'',
+		"is_require"	=>	$is_require,
+		"outer_st"	=>	'',
+		"outer_end"	=>	'',
+		"tag_st"	=>	'',
+		"tag_end"	=>	'',
+		"on_registration"	=>	$on_registration,
+		"on_profile"	=>	$on_profile,
+		"on_author_page" => $on_author_page,
+		);
+	}
+  endwhile;
+  return $form_fields_usermeta;
+}
+}
+}
+/* 
+	Return the site title
+*/
+if(!function_exists('get_site_emailName_plugin')){
+function get_site_emailName_plugin()
+{
+	$generalinfo = get_option('mysite_general_settings');
+	if($generalinfo['site_email_name'])
+	{
+		return stripslashes($generalinfo['site_email_name']);
+	}else
+	{
+		return stripslashes(get_option('blogname'));
+	}
+}
+}
+define('TMPL_HEADING_TITLE',__('Other Information','templatic'));
+
+/* To display the custom fields on detail page */
+if(!function_exists('tmpl_fields_detail_informations')){
+function tmpl_fields_detail_informations($not_show = array('title'),$title_text = TMPL_HEADING_TITLE){
+	global $post,$htmlvar_name,$heading_type,$used_heading;
+	$used_heading = array();
+	
+	$is_edit='';
+	if(isset($_REQUEST['action']) && $_REQUEST['action']=='edit'){
+		$is_edit=1;
+	}
+	
+	$j=0;
+	if(!empty($htmlvar_name) && is_single()){
+		echo '<div class="tevolution_custom_field  listing_custom_field">';
+		
+		foreach($htmlvar_name as $key=>$value){
+			$i=0;
+			if(!empty($value)){
+			foreach($value as $k=>$val){
+			
+				if(isset($_REQUEST['page']) && $_REQUEST['page'] =='preview' && isset($_SESSION['custom_fields'][$k])){
+					$field= $_SESSION['custom_fields'][$k];		
+				}else{
+					$field= get_post_meta($post->ID,$k,true);		
+				}
+				$tmpl_key = ( $key == 'basic_inf') ? $title_text: $heading_type[$key];
+				
+				/* Show other custom fields */
+				if($k!='post_title' && $k!='category' && $k!='post_content' && $k!='post_excerpt' && $k!='post_images' && $k!='listing_timing' && $k!='address' && $k!='listing_logo' && $k!='video' && $k!='post_tags' && $k!='map_view' && $k!='proprty_feature' && $k!='twitter' && $k!='facebook' && $k!='google_plus' && $k!='contact_info' && !in_array($k,$not_show)){
+					/* To display the title and Locations information on top */
+					$key_value = get_post_meta($post->ID,$k,true);
+					
+					if($is_edit ==1 && $i==0 && $key_value !=''){
+						$used_heading[$key] = $tmpl_key;
+						echo '<h2 class="custom_field_headding">'.$tmpl_key.'</h2>';
+					}
+					if($i==0 && $key_value !=''){
+					if($is_edit ==''){
+						if($tmpl_key){
+							$used_heading[$key] = $tmpl_key;
+							echo apply_filters('tmpl_custom_fields_listtitle','<h2 class="custom_field_headding">'.$tmpl_key.'</h2>');
+						}
+						$field= get_post_meta(get_the_ID(),$k,true);	
+						if($i==0 && $field!='' && $key != 'field_label' && $heading_key){
+							$used_heading[$key] = $heading_key;
+							echo apply_filters('tmpl_custom_fields_listtitle','<h2 class="custom_field_headding">'.$heading_key.'</h2>');
+							$i++;
+						}
+						
+						if($field!='' && $key == 'field_label' && $val['label']){
+							$used_heading[$key] = $val['label'];
+							echo apply_filters('tmpl_custom_fields_listtitle','<h2 class="custom_field_headding">'.$val['label'].'</h2>');$i++;
+						}
+					}
+
+						/* Show locations informations - country/state/city */
+						if($htmlvar_name['basic_inf']['post_city_id'] && $htmlvar_name['basic_inf']['post_city_id']['type'] =='multicity' && $k=='post_city_id'){
+								global $wpdb,$country_table,$zones_table,$multicity_table;
+								if(isset($_REQUEST['page']) && $_REQUEST['page'] =='preview'){
+									$city= $_SESSION['custom_fields']['post_city_id'];		
+									$country_id= @$_SESSION['custom_fields']['country_id'];		
+									$zones_id= @$_SESSION['custom_fields']['zones_id'];		
+								}else{
+									$city= get_post_meta($post->ID,'post_city_id',true);		
+									$zones_id= get_post_meta($post->ID,'zones_id',true);		
+									$country_id= get_post_meta($post->ID,'country_id',true);		
+								} 
+								$cityinfo = $wpdb->get_results($wpdb->prepare("select cityname from $multicity_table where city_id =%d",$city ));
+								if($country_id !='')
+									$countryinfo = $wpdb->get_results($wpdb->prepare("select country_name from $country_table where country_id =%d",$country_id ));
+								if($zones_id !='')
+									$zoneinfo = $wpdb->get_results($wpdb->prepare("select zone_name from $zones_table where zones_id =%d",$zones_id ));
+								
+								if($countryinfo[0]->country_name){
+									?><p class='<?php echo $val['style_class'];?>'><label><?php _e('Country','templatic'); ?>:</label><span><?php echo $countryinfo[0]->country_name; ?></span></p>
+								<?php }
+									if($zoneinfo[0]->zone_name){ ?>
+									<p class='<?php echo $val['style_class'];?>'><label><?php _e('State','templatic'); ?>:</label><span><?php echo $zoneinfo[0]->zone_name; ?></span></p>
+								<?php } 
+									if($cityinfo[0]->cityname){ ?>
+									<p class='<?php echo $val['style_class'];?>'><label><?php _e('City','templatic'); ?>:</label> <span><?php echo $cityinfo[0]->cityname; ?></span></p>
+							<?php }
+						}
+						
+					}
+					if($val['type'] == 'multicheckbox' &&  ($field!="" || $is_edit==1)):
+						$checkbox_value = '';				
+						$option_values = explode(",",$val['option_values']);				
+						$option_titles = explode(",",$val['option_title']);
+						for($i=0;$i<count($option_values);$i++){ 
+							if(isset($option_values[$i]) && $option_values[$i] !='' && count($field)>0){
+								if($option_values[$i] !='' && is_array($field) && in_array($option_values[$i],$field)){
+									if($option_titles[$i]!=""){
+										$checkbox_value .= $option_titles[$i].', ';
+									}else{
+										$checkbox_value .= $option_values[$i].', ';
+									}
+								}
+							}
+						}
+					?>
+					<p class='<?php echo $val['style_class']; ?>'><?php if($key != 'field_label') { ?><label><?php echo $val['label']; ?>:&nbsp; </label><?php }?> <span <?php if($is_edit==1):?>id="frontend_multicheckbox_<?php echo $k;?>" <?php endif;?> class="multicheckbox"><?php echo substr($checkbox_value,0,-2);?></span></p>
+
+				 <?php 
+				elseif(($val['type']=='radio' || $val['type']=='select') && ($field || $is_edit==1)):
+					$option_values = explode(",",$val['option_values']);				
+					$option_titles = explode(",",$val['option_title']);
+					for($i=0;$i<count($option_values);$i++){
+						if($field == $option_values[$i]){
+							if($option_titles[$i]!=""){
+								$rado_value = $option_titles[$i];
+							}else{
+								$rado_value = $option_values[$i];
+							}
+						?>
+					   <p class='<?php echo $val['style_class'];?>'><?php if($key != 'field_label' || $is_edit==1) { ?><label><?php echo $val['label']; ?>:&nbsp; </label><?php } ?><span <?php if($is_edit==1):?>id="frontend_<?php echo $val['type']; ?>_<?php echo $k;?>" <?php endif;?>><?php echo $rado_value;?></span></p>
+					   <?php
+						}
+					}
+				elseif($val['type']=='oembed_video' && ($field || $is_edit==1)):?>
+					<p class='<?php echo $val['style_class'];?>'><?php if($key != 'field_label') { ?><label><?php echo $val['label']; ?>:&nbsp;</label><?php } ?>
+						<?php if($is_edit==1):?>					
+						<span id="frontend_edit_<?php echo $k;?>" class="frontend_oembed_video button" ><?php _e('Edit Video','templatic');?></span>
+						<input type="hidden" class="frontend_<?php echo $k;?>" name="frontend_edit_<?php echo $k;?>" value='<?php echo $field;?>' />
+						<?php endif;?>
+					<span class="frontend_edit_<?php echo $k;?>"><?php             
+					$embed_video= wp_oembed_get( $field);            
+					if($embed_video!=""){
+						echo $embed_video;
+					}else{
+						echo $field;
+					}
+					?></span></p>
+				<?php	
+				endif;
+				if($val['type']  == 'upload' || ($is_edit==1 && $val['type']  == 'upload'))
+				{
+					if($_SESSION['upload_file'][$name]){
+						$upload_file=strtolower(substr(strrchr($_SESSION['upload_file'][$name],'.'),1));
+					}else{
+						$upload_file=strtolower(substr(strrchr($field,'.'),1));
+					}
+					if($is_edit==1):?>
+						<p class="<?php echo $val['style_class'];?>"><?php if($key != 'field_label') { ?><label><?php echo $val['label']; ?>: </label><?php } ?>
+							<span class="entry-header-<?php echo $k;?> span_uploader" >
+							<span style="display:none;" class="frontend_<?php echo $k;?>"><?php echo $field?></span>                            
+							<span id="fronted_upload_<?php echo $k;?>" class="frontend_uploader button"  data-src="<?php echo $field?>">	                 	
+								<span><?php echo __( 'Upload ', 'templatic-admin' ).$val['label']; ?></span>
+							</span>
+							</span>
+						</p>
+					<?php elseif($upload_file=='jpg' || $upload_file=='jpeg' || $upload_file=='gif' || $upload_file=='png' || $upload_file=='jpg' ):?>
+						<p class="<?php echo $val['style_class'];?>"><img src="<?php echo $field; ?>" /></p>
+					<?php else:
+						if(!empty($field))
+						{
+							?>
+								<p class="<?php echo $val['style_class'];?>"><?php if($key != 'field_label') { ?><label><?php echo $val['label']; ?>: </label><?php } ?><a href="<?php echo $field; ?>" target="_blank"><?php echo basename($field); ?></a></p>
+							<?php
+						}
+						endif;
+				}
+				if(($val['type'] != 'multicheckbox' && $val['type'] != 'radio' && $val['type'] != 'select' && $val['type'] != 'multicity' && $val['type']  != 'upload' && $val['type'] !='oembed_video') && ($field!='' || $is_edit==1)):				
+				?>
+					<p class='<?php echo $val['style_class'];?>'>
+						<?php if($key != 'field_label') { ?><label><?php echo $val['label']; ?>:&nbsp;</label><?php } ?>
+						<?php if($val['type']=='texteditor'):?>
+						<span <?php if($is_edit==1):?>id="frontend_<?php echo $val['type'].'_'.$k;?>" class="frontend_<?php echo $k; if($val['type']=='texteditor'){ echo ' editblock';} ?>" <?php endif;?>>
+							<?php echo $field;?>
+						</span>
+					<?php else: ?>
+						<span <?php if($is_edit==1):?>id="frontend_<?php echo $val['type'].'_'.$k;?>" contenteditable="true" class="frontend_<?php echo $k;?>" <?php endif;?>>
+							<?php echo $field;?>
+						</span>
+					<?php endif;?>
+					</p>
+				<?php
+				endif;
+				}/* End If condition*/
+				$j++;
+				$i++;
+			  }/* End second foreach*/
+			}
+		}/* END First foreach*/
+		echo '</div>';
+		?>
+		<script>
+			jQuery(document).ready(function(){
+				
+				if(jQuery('.tevolution_custom_field.listing_custom_field').is(':empty')){
+					jQuery('.tevolution_custom_field.listing_custom_field').remove();
+				}
+			});
+		</script>
+		<?php
+	}
+}
+}
+/*
+	Show on detail page enable fields
+*/
+if(!function_exists('tmpl_show_on_detail')){
+function tmpl_show_on_detail($cur_post_type,$heading_type){
+	global $wpdb,$post;
+	remove_all_actions('posts_where');
+	add_filter('posts_join', 'custom_field_posts_where_filter');
+	if($heading_type)
+	 {
+		$args = array( 'post_type' => 'custom_fields',
+				'posts_per_page' => -1	,
+				'post_status' => array('publish'),
+				'meta_query' => array(
+				 'relation' => 'AND',
+				array(
+					'key' => 'post_type_'.$cur_post_type.'',
+					'value' => $cur_post_type,
+					'compare' => '=',
+					'type'=> 'text'
+				),
+				array(
+					'key' => 'show_on_page',
+					'value' =>  array('user_side','both_side'),
+					'compare' => 'IN'
+				),
+				array(
+					'key' => 'is_active',
+					'value' =>  '1',
+					'compare' => '='
+				),
+				array(
+					'key' => 'heading_type',
+					'value' =>  $heading_type,
+					'compare' => '='
+				),
+				array(
+					'key' => 'show_on_detail',
+					'value' =>  '1',
+					'compare' => '='
+					)
+				),
+				'meta_key' => 'sort_order',
+				'orderby' => 'meta_value',
+				'order' => 'ASC'
+		);
+	 }
+	else
+	 {
+		$args = array( 'post_type' => 'custom_fields',
+			'posts_per_page' => -1	,
+			'post_status' => array('publish'),
+			'meta_query' => array(
+			 'relation' => 'AND',
+			array(
+				'key' => 'post_type_'.$cur_post_type.'',
+				'value' => $cur_post_type,
+				'compare' => '=',
+				'type'=> 'text'
+			),
+			array(
+				'key' => 'show_on_page',
+				'value' =>  array('user_side','both_side'),
+				'compare' => 'IN'
+			),
+			array(
+				'key' => 'is_active',
+				'value' =>  '1',
+				'compare' => '='
+			),
+			array(
+				'key' => 'show_on_detail',
+				'value' =>  '1',
+				'compare' => '='
+				)
+			),
+			'meta_key' => 'sort_order',
+			'orderby' => 'meta_value',
+			'order' => 'ASC'
+		);
+ 
+	 }
+	$post_query = null;
+	$upload = array();
+	$post_query = new WP_Query($args);
+	remove_filter('posts_join', 'custom_field_posts_where_filter');
+	return $post_query;
+}
+}
+
+/*
+ * Save data for upgrade post from transaction approved.
+ */
+add_action('tranaction_upgrade_post','tranaction_upgrade_post',10,2);
+function tranaction_upgrade_post($orderId,$transID='')
+{
+	global $wpdb,$current_user;
+	$catids_arr = array();
+	$my_post = array();
+	$pid = $orderId; /* it will be use when going for RENEW */
+	$upgrade_post = get_post_meta($pid,'upgrade_data',true);
+	$last_postid = $pid;
+	$alive_days = $upgrade_post['alive_days'];
+	$payment_method = get_post_meta($last_postid,'upgrade_method',true);
+	$coupon = @$upgrade_post['add_coupon'];
+	$featured_type = @$upgrade_post['featured_type'];
+	$payable_amount = @$upgrade_post['total_price'];
+	$post_tax = fetch_page_taxonomy($upgrade_post['pid']);		
+	/*delete custom fields */
+	$heading_type = fetch_heading_per_post_type(get_post_type($last_postid));
+	$taxonomies = get_object_taxonomies( (object) array( 'post_type' =>get_post_type($last_postid),'public'   => true, '_builtin' => true ));
+	$taxonomy = $taxonomies[0];
+	if(count($heading_type) > 0)
+	{
+		foreach($heading_type as $_heading_type){
+			$upgrade_custom_metaboxes[] = get_post_custom_fields_templ_plugin(get_post_type($last_postid),$upgrade_post['category'],$taxonomy,$_heading_type,'',$upgrade_post['pkg_id']);
+			/* custom fields for custom post type..  */
+		}
+	}else{
+
+		$upgrade_custom_metaboxes[] = get_post_custom_fields_templ_plugin($post_type,$upgrade_post['category'],$taxonomy,'','',$upgrade_post['pkg_id']);/*custom fields for custom post type..*/
+	}
+
+	$terms = wp_get_post_terms( $last_postid, $taxonomy,  array("fields" => "ids") ); 
+	$pkg_id = get_post_meta($pid,'pkg_id',true);
+	if(count($heading_type) > 0)
+	{
+		foreach($heading_type as $_heading_type){
+			$custom_metaboxes[] = get_post_custom_fields_templ_plugin(get_post_type($last_postid),$terms,$taxonomy,$_heading_type,'',$pkg_id);/*custom fields for custom post type..*/
+		}
+	}else{
+		$custom_metaboxes[] = get_post_custom_fields_templ_plugin($post_type,$terms,$taxonomy,'','',$pkg_id);/*custom fields for custom post type..*/
+	}
+	
+	for($h=0;$h<count($heading_type);$h++)
+	{
+		$result[] = array_diff_key($custom_metaboxes[$h],$upgrade_custom_metaboxes[$h]);
+	}
+	for($r=0;$r<count($result);$r++)
+	{
+		$custom_fields_name = array_keys($result[$r]);
+		for($i=0;$i<count($custom_fields_name);$i++)
+		{
+			$custom_fields_value = get_post_meta($last_postid,$custom_fields_name[$i],true);
+			delete_post_meta($last_postid,$custom_fields_name[$i],$custom_fields_value);
+		}
+	}
+	/**/
+	/* Here array separated by category id and price amount */
+	if($upgrade_post['category'])
+	{
+		$category_arr = $upgrade_post['category'];
+		foreach($category_arr as $_category_arr)
+		 {
+			$category[] = explode(",",$_category_arr);
+		 }
+		foreach($category as $_category)
+		 {
+			 $post_category[] = $_category[0];
+			 $category_price[] = $_category[1];
+		 }
+	}
+
+	if($payable_amount <= 0)
+	{	
+		if($upgrade_post['package_select'] !='')
+		{
+			global $monetization;
+			$post_default_status = $monetization->templ_get_packaget_post_status($current_user->ID, get_post_meta($custom_fields['cur_post_id'],'submit_post_type',true));
+			if($post_default_status =='recurring'){
+				$post = get_post($custom_fields['cur_post_id']);
+				
+				$post_default_status = $monetization->templ_get_packaget_post_status($current_user->ID, $post->post_parent,'submit_post_type',true);
+				if($post_default_status =='trash'){
+					$post_default_status ='draft';
+				}
+			}
+		}else{
+			$post_default_status = fetch_posts_default_status();
+		}
+	}else
+	{
+		$post_default_status = 'draft';
+	}
+	
+	
+			$submit_post_type = get_post_meta($custom_fields['cur_post_id'],'submit_post_type',true);
+			$submit_post_type = get_post_type($pid);
+			
+			$package_post=get_post_meta($upgrade_post['package_select'],'limit_no_post',true);
+			/* $user_limit_post=get_user_meta($current_user_id,$submit_post_type.'_list_of_post',true); */
+			$current_user = wp_get_current_user();
+			$current_user_id = $current_user->ID;
+			$user_limit_post=get_user_meta($current_user_id,'total_list_of_post',true);
+		
+				/* $limit_post=get_user_meta($current_user_id,$submit_post_type.'_list_of_post',true); */
+				global $monetization;
+				$listing_price_info = $monetization->templ_get_price_info($upgrade_post['pkg_id']);			
+				update_post_meta($last_postid,'package_select',$upgrade_post['pkg_id']);
+				update_post_meta($last_postid,'pkg_id',$upgrade_post['pkg_id']);
+				update_post_meta($last_postid,'paid_amount',$upgrade_post['total_price']);
+				
+				$limit_post=get_user_meta($current_user_id,'total_list_of_post',true);
+								
+				if($listing_price_info[0]['package_type']==2)
+				{
+					$package_post_type = get_post_meta($upgrade_post['pkg_id'],'package_post_type',true);
+					$package_post_type = explode(",",$package_post_type);
+					if($payable_amount <= 0)
+					{
+						$value=$limit_post+1;
+					}
+					else{
+						$value=1;
+					}
+					foreach($package_post_type as $post_type)
+					{
+						update_user_meta($current_user_id,$post_type.'_list_of_post',$value);
+						update_user_meta($current_user_id,'total_list_of_post',$value);
+					}
+					
+					update_user_meta($current_user_id,$submit_post_type.'_package_select',$upgrade_post['pkg_id']);
+					update_user_meta($current_user_id,'package_selected',$upgrade_post['pkg_id']);
+				}
+				
+			foreach($upgrade_post as $key=>$val)
+			{ 
+				if($key != 'category' && $key != 'paid_amount' && $key != 'alive_days' && $key != 'post_title' && $key != 'post_content' && $key != 'imgarr' && $key != 'Update' && $key != 'post_excerpt' && $key != 'alive_days')
+				  {
+					if($key=='recurrence_bydays')
+					{ 
+						$val=implode(',',$val);
+						update_post_meta($last_postid, $key, $val);
+					}
+					else
+					{
+						update_post_meta($last_postid, $key, $val);
+					}
+					
+				  }
+			}
+
+			/* set post categories start */
+			wp_set_post_terms( $last_postid,'',$post_tax,false);
+			if($post_category){
+			foreach($post_category as $_post_category)
+			 { 
+				if(taxonomy_exists($post_tax)):
+					wp_set_post_terms( $last_postid,$_post_category,$post_tax,true);
+				endif;
+			 }
+			} 
+			/* set post categories end */
+		
+		 
+		 /* Condition for Edit post */
+			if( @$pid){
+				$post_default_status = get_post_status($pid);
+			}else{
+				$post_default_status = 'publish';
+			}
+		
+			if(class_exists('monetization')){
+			
+					global $monetization;
+					$monetize_settings = $monetization->templ_set_price_info($last_postid,$pid,$payable_amount,$alive_days,$payment_method,$coupon,$featured_type);
+	
+			}
+			update_post_meta($last_postid,'alive_days',$listing_price_info[0]['alive_days']);
+			$transaction_db_table_name=$wpdb->prefix.'transactions';
+			if($upgrade_post['featured_type'] == 'both')
+			{
+				$transaction_update = $wpdb->query("update $transaction_db_table_name set payforfeatured_h = 1 , payforfeatured_c = 1 where trans_id =$transID");
+				update_post_meta($pid, 'featured_c', 'c');
+				update_post_meta($pid, 'featured_h', 'h');
+				update_post_meta($pid, 'featured_type', 'both');
+			}
+			if($upgrade_post['featured_type'] == 'h')
+			{
+				$transaction_update = $wpdb->query("update $transaction_db_table_name set payforfeatured_h = 1  where trans_id  =$transID");
+				update_post_meta($pid, 'featured_c', 'n');
+				update_post_meta($pid, 'featured_h', 'h');
+				update_post_meta($pid, 'featured_type', 'h');
+			}
+			if($upgrade_post['featured_type'] == 'c')
+			{
+				$transaction_update = $wpdb->query("update $transaction_db_table_name set  payforfeatured_c = 1 where trans_id  =$transID");
+				update_post_meta($pid, 'featured_h', 'n');
+				update_post_meta($pid, 'featured_c', 'c');
+				update_post_meta($pid, 'featured_type', 'c');
+			}
+			else
+			{
+				update_post_meta($pid, 'featured_type', 'none');
+			}
+		//$my_post['post_date'] =  date_i18n('Y-m-d H:i:s',strtotime(date('Y-m-d H:i:s')));
+		$my_post['ID'] = $upgrade_post['pid'];
+		// Update the post into the database
+		wp_update_post( $my_post );
+		
+		/* Update new publish date for this listing */
+		update_post_meta($upgrade_post['pid'],'featued_publish_date',date_i18n('Y-m-d H:i:s',strtotime(date('Y-m-d H:i:s'))));
+}
+
+/*
+	display terms and condition check box on submit page
+*/
+function tevolution_show_term_and_condition()
+{
+	$tmpdata = get_option('templatic_settings');
+	if(isset($tmpdata['tev_accept_term_condition']) && $tmpdata['tev_accept_term_condition'] != "" && $tmpdata['tev_accept_term_condition'] == 1){	?>
+        <div class="form_row clearfix">
+            <input name="term_and_condition" id="term_and_condition" value="" type="checkbox" class="chexkbox" onclick="hide_error()"/>
+            <label class="term_and_condition" for="term_and_condition">&nbsp;
+             <?php if(isset($tmpdata['term_condition_content']) && $tmpdata['term_condition_content']!=''){
+				 	 if (function_exists('icl_register_string')){
+						icl_register_string('templatic', 'term_condition',stripslashes($tmpdata['term_condition_content']));
+						$term_condition = icl_t('templatic', 'term_condition',stripslashes($tmpdata['term_condition_content']));
+						echo stripslashes($term_condition); 
+				   }
+				   else
+				   {
+	                   echo stripslashes($tmpdata['term_condition_content']);
+				   }
+             }else{
+                _e('Accept Terms and Conditions.','templatic');
+             }?></label>
+             <span class="error message_error2" id="terms_error"></span>
+        </div>            
+    <?php 
+	}
+}
+
+/* This function use for display terms and condition and submit button when custom fields category wise using jquery ajax.*/
+add_action( 'wp_ajax_nopriv_tmpl_show_terms_condition','tmpl_show_terms_condition');
+add_action( 'wp_ajax_tmpl_show_terms_condition' ,'tmpl_show_terms_condition');
+function tmpl_show_terms_condition()
+{
+	$results = '';
+	$results .= tevolution_show_term_and_condition();
+	$results .= '~';
+	$results .= '&nbsp;&nbsp;<input type="button" class="secondray-button" data-reveal-id="preview_submit_from_'.$_REQUEST['submit_post_type'].'"  id="preview_submit_from" name="preview" value="'.__('Preview','templatic').'" />';
+	echo $results;exit;
+}
+
+/* ajax to fetch sub category while submit form */
+add_action( 'wp_ajax_nopriv_tmpl_fetch_sub_cat','tmpl_fetch_sub_cat');
+add_action( 'wp_ajax_tmpl_fetch_sub_cat' ,'tmpl_fetch_sub_cat');
+
+function tmpl_fetch_sub_cat()
+{
+	global $wpdb,$cat_array,$include_cat_array;
+	$total_cp_price = 0;
+	
+	$cpost_type = $_POST['cur_post_type'];
+	$taxonomies = get_object_taxonomies( (object) array( 'post_type' => $cpost_type,'public'   => true, '_builtin' => true ));
+	$taxonomy = $taxonomies[0];
+	
+	if(isset($_REQUEST['pid']) && $_REQUEST['pid']!="" ){
+				
+		$get_category = wp_get_post_terms($_REQUEST['pid'],$taxonomy);		
+		foreach($get_category as $_get_category)
+		{
+			$cat_array[] = $_get_category->term_id;			
+		}
+		$place_cat_arr = $cat_array;
+	}
+	
+	$output  = '';
+	
+	$category_id = explode(',',rtrim($_POST['category_id'],","));
+	
+	$terms = templ_get_parent_categories($taxonomy);
+	$has_child_terms = array();
+	if($_POST['category_id'] != '')
+	{
+		for($i=0;$i<count($category_id);$i++)
+		{
+			$has_child_terms = array_merge($has_child_terms,templ_get_child_categories($taxonomy,$category_id[$i]));
+		}
+	}
+	
+	if($terms && !empty($has_child_terms)) :
+		
+		$output .= '<div id="subcategory">';
+		$output .= '<label>'.__("Select Child Category","templatic").'</label>';
+		$output .= '<div class="category_label">';
+		$output .= '<select multiple="multiple" class="js-sub-cat-basic-multiple" name="category[]" id="select_sub_category" >';
+		$output .= '<option value="">'.__('Select Sub Category','templatic').'</option>';
+		foreach($terms as $term){
+			$disabled = '';
+			$term_id = $term->term_id;
+			/* Check term id in include cart array if not in include cart array then continue loop  for display category price package wise set */
+			if(is_array($category_id) && !in_array($term_id,$category_id) && !in_array('all',$category_id))
+				continue;
+				
+			if(isset($_REQUEST['pid']) && $_REQUEST['pid']!=""){
+				$edit_id = $_REQUEST['pid'];
+				/* get the submited price package  */
+				$pkg_id=get_post_meta($edit_id,'package_select',true);
+				$pkg_category=explode(',',get_post_meta($pkg_id,'category',true));
+				/* check category on price package selected catgeory if category not in price package category then return output */
+				if(!empty($pkg_category) && $pkg_category[0]!='' && !in_array($term_id,$pkg_category) && !in_array('all',$pkg_category)){				
+					continue;
+				}
+			}
+	
+			/* finish display price package wise category */
+			
+			$scp = $term->term_price;
+			if($scp == ""){
+				$scp = 0 ;
+			}
+			/* price will display only when monetization is activated */
+			if($scp!='0') { $sdisplay_price = " (".fetch_currency_with_position($scp).")"; }else{ $sdisplay_price =''; }
+			$term_name = $term->name;
+			if(isset($place_cat_arr) && in_array($term_id,$place_cat_arr)){ $selected = 'selected=selected'; }else{ $selected='';} /* category must be selected when gobackand edit /Edit/Renew */
+			
+			if((isset($edit_id) && $edit_id !='' && (!isset($_REQUEST['renew']))) && !isset($_REQUEST['backandedit']) )
+			{
+				if(checked( in_array( $term->term_id, $place_cat_arr ), true, false ) == " checked='checked'" && @$term->term_price > 0)
+				{
+					$disabled = "disabled='disabled'";
+				}
+			}
+			
+			$child_terms = templ_get_child_categories($taxonomy,$term_id);		/* get child categories term_id = parent id*/					
+			$i=1;
+			$parent_id = $term_id;
+			$tmp_term_id=$term_id;
+			foreach($child_terms as $child_term){ 
+				$disabled = '';
+				$child_term_id = $child_term->term_id;
+				$child_cp = $child_term->term_price;				
+				if($child_term_id)
+				{
+					
+					/* show those child categories only which are checked in package */
+					if(is_array($include_cat_array) && !in_array($child_term_id,$include_cat_array) && !in_array('all',$include_cat_array))
+						continue;
+						
+					if(isset($_REQUEST['pid']) && $_REQUEST['pid']!=""){
+						$edit_id = $_REQUEST['pid'];
+						/* get the submited price package  */
+						$pkg_id=get_post_meta($edit_id,'package_select',true);
+						$pkg_category=explode(',',get_post_meta($pkg_id,'category',true));
+						/* check category on price package selected catgeory if category not in price package category then return output */
+						if(!empty($pkg_category) && $pkg_category[0]!='' && !in_array($child_term_id,$pkg_category) && !in_array('all',$pkg_category)){				
+							continue;
+						}
+					}
+					
+					$pad ='';
+					$catprice = $wpdb->get_row("select * from $wpdb->term_taxonomy tt ,$wpdb->terms t where t.term_id='".$child_term_id."' and t.term_id = tt.term_id AND tt.taxonomy ='".$taxonomy."'");
+					for($i=0;$i<count($catprice);$i++)
+					{
+						if($catprice->parent)
+						{	
+							$pad .= '&ndash; ';
+							$catprice1 = $wpdb->get_row("select * from $wpdb->term_taxonomy tt ,$wpdb->terms t where t.term_id='".$catprice->parent."' and t.term_id = tt.term_id AND tt.taxonomy ='".$taxonomy."'");
+							if($catprice1->parent)
+							{
+								$i--;
+								$catprice = $catprice1;
+								continue;
+							}
+						}
+					}
+				}
+				if($child_term->category_parent!=0):					
+					/* price will display only when monetization is activated */
+					if($child_cp!='0' ) { $cdisplay_price = " (".fetch_currency_with_position($child_cp).")"; }else{ $cdisplay_price =''; }
+					$term_name = $child_term->name;
+					if(isset($place_cat_arr) && in_array($child_term_id,$place_cat_arr)){ $cselected = 'selected=selected'; }else{ $cselected='';} /* category must be selected when gobackand edit /Edit/Renew */
+					if((isset($edit_id) && $edit_id !='' && (!isset($_REQUEST['renew']))) && !isset($_REQUEST['backandedit']) )
+					{
+						if(checked( in_array( $child_term->term_id, $place_cat_arr ), true, false ) == " checked='checked'" && @$child_term->term_price > 0)
+						{
+							$disabled = "disabled='disabled'";
+						}
+					}
+					
+					$output .= '<option '.$disabled.' data-value='.$child_term_id.' value='.$child_term_id.','.$child_cp.' '.$cselected.'>'.$pad.$term_name.$cdisplay_price.'</option>';										
+				endif;
+            } /* child category foreach loop  */
+		}
+	$output .= '</select>';
+	$output .= '</div></div>';
+	endif;
+	echo $output;exit;
+}
+?>

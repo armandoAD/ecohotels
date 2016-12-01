@@ -1,0 +1,325 @@
+.header, #header{
+background-color: #fff;
+}
+body .mega-menu ul.mega li a:hover, body .mega-menu ul.mega li.current-menu-item a, body .mega-menu ul.mega li.current-page-item a, body .mega-menu ul.mega li:hover > a, body .nav_bg .widget-nav-menu li a:hover, body div#menu-secondary .menu li a:hover, body div#menu-secondary1 .menu li a:hover, body div#menu-subsidiary .menu li a:hover, .nav_bg .widget-nav-menu li a:hover, div#menu-secondary .menu li a:hover, div#menu-secondary1 .menu li a:hover, div#menu-subsidiary .menu li a:hover, div#menu-secondary .menu li a:hover, div#menu-secondary .menu li.current-menu-item > a, div#menu-secondary .menu li:hover > a, div#menu-secondary1 .menu li a:hover, div#menu-secondary1 .menu li.current-menu-item > a, div#menu-secondary1 .menu li:hover > a, div#menu-subsidiary .menu li.current-menu-item > a, body .mega-menu ul.mega li:hover > a, body .mega-menu ul.mega li.current-menu-item > a, body #menu-secondary .menu li[class*="current-menu"] > a, body #menu_secondary_mega_menu .mega li[class*="current-menu"] > a, body .menu li[class*="current-menu"] > a {
+    color: #878787;
+    border-bottom: 2px solid #666666;
+}
+
+body .mega-menu ul.mega li a, .nav_bg .widget-nav-menu li a, div#menu-secondary .menu li a, div#menu-secondary1 .menu li a, div#menu-subsidiary .menu li a {
+       color: rgba(0, 0, 0, 0.6);
+    
+}
+#menu-secondary .menu ul li, .nav_bg .wrap .menu-secondary-container ul li, .menu-primary-container li {
+    float: right;
+    z-index: 99;
+}
+
+
+.become-member-button{
+			    float: left;
+    width: 161px;
+    height: 28px;
+    background: #8779b7 !important;
+    margin-top: 5px;
+    margin-right: 10px;
+		}
+		.location_fld_wrapper{
+			top:10px;
+		}
+		.location_fld_wrapper a{
+			color:#000 !important;
+		}
+
+
+.become-member-button a{
+                color: #fff !important;
+    background: #8779b7 !important;
+    box-shadow: none !important;
+    font-size: 12px;
+    padding: 6px !important;
+        }
+
+body #menu-secondary #menu-secondary-items {
+    width: 100%;
+    font-size: 20px;
+}
+
+.button:hover, .uploadfilebutton:hover, a.button:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .singular-classified #contact_seller_id:hover, .tmpl_classified_seller .seller-top_wrapper .tmpl-seller-detail-rt .button:hover, .fullwidth .templatic-advanced-search #searchform input[type="submit"]:hover {
+    background-color: #111111;
+
+}
+
+
+.button:hover, .uploadfilebutton:hover, a.button:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .widget-title .more:hover, .singular-classified #contact_seller_id:hover, .tmpl_classified_seller .seller-top_wrapper .tmpl-seller-detail-rt .button:hover, .heading-inner a.more:hover, .fullwidth .templatic-advanced-search #searchform input[type="submit"]:hover {
+    background-color: #424242;
+    color: #E6E6E6;
+
+}
+
+.button, .uploadfilebutton, a.button, button, input[type="button"], input[type="reset"], input[type="submit"], .widget-title .more, .tmpl_classified_seller .seller-top_wrapper .tmpl-seller-detail-rt .button, .singular-classified #contact_seller_id, #searchform input[type="submit"], .upload, body.woocommerce #content input.button, body.woocommerce #content input.button.alt, body.woocommerce #respond input#submit, body.woocommerce #respond input#submit.alt, body.woocommerce .widget_layered_nav_filters ul li a, body.woocommerce a.button, body.woocommerce a.button.alt, body.woocommerce button.button, body.woocommerce button.button.alt, body.woocommerce input.button, body.woocommerce input.button.alt, body.woocommerce-page #content input.button, body.woocommerce-page #content input.button.alt, body.woocommerce-page #respond input#submit, body.woocommerce-page #respond input#submit.alt, body.woocommerce-page .widget_layered_nav_filters ul li a, body.woocommerce-page a.button, body.woocommerce-page a.button.alt, body.woocommerce-page button.button, body.woocommerce-page button.button.alt, body.woocommerce-page input.button, body.woocommerce-page input.button.alt, div.woocommerce form.track_order input.button, .heading-inner .more {
+    background-color: #8779b7;
+  
+    box-shadow: 0 2px 0 #8779b7;
+   
+}
+
+.button:hover, .uploadfilebutton:hover, a.button:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .singular-classified #contact_seller_id:hover, .tmpl_classified_seller .seller-top_wrapper .tmpl-seller-detail-rt .button:hover, .fullwidth .templatic-advanced-search #searchform input[type="submit"]:hover {
+   
+    box-shadow: none !important;
+}
+
+header .button {
+    padding: 11px 22px 10px 5px;
+}
+
+.header-wrap {
+   padding: 5px 0;
+ 
+}
+
+#branding, #branding1 {
+     margin-top: -46px;
+}
+
+ 
+.offers-img {
+    width: 100%;
+    height: 202px;
+    background-size: cover;
+    background-position: center;
+}
+            .offer-button{
+               position: relative;
+    margin: auto;
+    width: 177px;
+    height: 52px;
+    top: -40px;
+    float: right;
+            }
+
+            .offer-button button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #8779b7 !important;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: none !important;
+}
+
+
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
+    box-shadow: none !important;
+}
+
+nav ul a:hover {
+    background-color: #fff;
+}
+
+.fa-map-marker:before {
+ 
+    margin-right: 8px;
+}
+
+.offer-price-currency{    font-size: 26px;}
+
+.offer-price {
+        position: relative;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.56);
+    height: 86px;
+    top: 116px;
+    color: #fff;
+    font-size: 49px;
+    padding: 30px 12px;
+font-family: 'Abril Fatface', cursive;
+font-style:italic;
+}
+
+.widget ul li, .loop_related_list > .post, .sidebar .categories li {
+    border-bottom: 1px solid rgba(156, 156, 156, 0.48);
+}
+
+ul.cnss-social-icon li a img {
+    display: inherit!important;
+    border: solid;
+    border-width: 1px;
+    width: 57px;
+    padding: 13px;
+    border-color: rgba(167, 167, 167, 0.15);
+}
+
+.Facebook {
+    padding: 0px 0px !important;
+    height: 57px;
+}
+
+.Twitter{
+    padding: 0px 0px !important;
+    height: 57px;
+}
+
+.Google{
+    padding: 0px 0px !important;
+    height: 57px;
+}
+.Pinterest{
+    padding: 0px 0px !important;
+    height: 57px;
+}
+
+.socialMedia1{    position: relative;
+    float: left;
+    width: 60px;
+    margin-right: 17px;}
+.widget h3, .widget-search .widget-title, .widget-title, .widget.title {
+    border: none;
+    color: #8779b7;
+}
+
+
+a, #tev_sub_categories ul li a, #sub_event_categories ul li a, #sub_listing_categories ul li a, .comment-meta a:hover {
+    color: #8779b7;
+}
+
+#footer .footer_bottom a:hover {
+    color: #8779b7;
+}
+
+#footer .footer_bottom a {
+    color: rgb(135, 121, 183);
+}
+nav ul a:hover {
+    background-color: rgba(255, 255, 255, 0);
+}
+.menu-footer-items li{color:#8779b7}
+
+
+
+/* SEARCH CSS */
+
+  .extra-s {
+                padding-left: 10px !important;
+                border-right-style: solid;
+                padding-right: 0px !important;
+                border-right-width: 1px;
+                border-right-color: #cecece;
+            }
+
+            
+
+
+            .book-searching {
+                position: relative;
+                width: 70%;
+                height: 100px;
+                top: 258px;
+                margin: auto;
+                background-color: rgba(0, 0, 0, 0.52);
+                z-index: 99;
+            }
+            .book-searching-form {
+                position: relative;
+                width: 90%;
+                margin: auto;
+                height: 44px;
+                top: 27px;
+                background: #fff;
+ overflow: hidden;
+            }
+
+            .book-searching-form input[type=text] {
+                height: 100%;
+                width: 100%;
+                margin:0px !important;
+                font-size: 17px;
+    border: none;
+
+            }
+
+            .datepicker-search{
+
+
+            }
+
+
+            #calen-label {
+                position: relative;
+            }
+            #calen-label:before {
+                color: #666;
+                content: "\f073";
+                font-family: FontAwesome;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 19px;
+            }
+
+            .arrow-search{
+                width: 40px;
+                float: right;
+                margin-right: -32px;
+                margin-top: -43px;
+                display: block;
+            }
+
+.select-wrap span.select {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+   border: none !important;
+    padding: 11px 12px;
+    max-width: 370px;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+    min-height: 35px;
+    max-height: 35px;
+    font-size: 18px;
+   
+}
+
+.home_page_banner{
+    top: -78px;
+}
+
+.tab-bar-section.middle {
+    background-color: #ffffff;
+} 
+
+.home #main > div:first-child {
+    margin-top: 0px;
+}
+
+body .left-off-canvas-menu .mega-menu .mega_menu_wrap, .left-off-canvas-menu {
+    background-color: #9f93c5;
+}
+
+.find-hotels-modal{
+    margin: auto !important;
+    width: 300px;
+    height: 60px;
+    font-size: 27px !important;
+    border-radius: 0px;
+    border: none !important;
+    box-shadow: none;
+display:none;
+}
+
+.mobile-view .button:hover, .mobile-view .uploadfilebutton:hover, .mobile-view a.button:hover, .mobile-view button:hover, .mobile-view input[type="button"]:hover, .mobile-view input[type="reset"]:hover, .mobile-view input[type="submit"]:hover {
+    background-color: #8779b7;
+    border-color: #8779b7;
+}
+
+
+@media (max-width:768px){
+
+.offer-button {
+    top: -28px;
+    float: none; 
+}
+
+}

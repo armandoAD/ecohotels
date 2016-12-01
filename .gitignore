@@ -1,0 +1,12 @@
+wp-*.php
+wp-admin/
+wp-includes/
+nbproject/
+test.html
+license.txt
+.htaccess
+ecohotels/
+.idea/
+xmlrpc.php
+index.php
+readme.html

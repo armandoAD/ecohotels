@@ -1,0 +1,4 @@
+/*
+* script to alert user when he submit from backend without slectin category,city and price package
+*/
+jQuery(document).ready(function(t){t("input#publish").click(function(){var i=(t(this).val(),!0),n="",c="",e="",a="";t(".categorychecklist input[type=checkbox]:checked").each(function(){a+=t(this).attr("value")+","}),a.length||(n=cpa_l10n_obj.confirm_cat,e=cpa_l10n_obj.confirm_submit+n);var r="";t("#city_id option:selected").each(function(){r+=t(this).attr("value")+","}),!r.length&&jQuery("#city_id").length>0&&(c=city,e=""==e?cpa_l10n_obj.confirm_submit+c:e+and+c);var u="";return jQuery("#pkg_id").length&&""==jQuery("#pkg_id").val()&&(u=package,e=""==e?cpa_l10n_obj.confirm_submit+u:e+and+u),""!=e&&(i=confirm(e+msg)),i||(t("#submitpost .spinner").hide(),t("input#publish").removeClass("button-primary-disabled")),i})});

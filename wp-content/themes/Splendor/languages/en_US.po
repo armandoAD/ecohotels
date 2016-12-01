@@ -1,0 +1,3020 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Listings Child\n"
+"POT-Creation-Date: 2015-12-15 16:16+0530\n"
+"PO-Revision-Date: 2016-04-28 10:52+0530\n"
+"Last-Translator: \n"
+"Language-Team: Templatic <upendra@templatic.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+"X-Poedit-Basepath: C:\\wamp\\www\\multisites\\wp-content\\themes\\Splendor\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e\n"
+"X-Poedit-SearchPath-0: C:\\wamp\\www\\multisites\\wp-content\\themes\\Splendor\n"
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/404.php:24
+msgid "Sorry, The page you're looking for cannot be found!"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/404.php:25
+msgid "I can help you find the page you want to see, just help me with a few clicks please."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/404.php:26
+msgid "I recommend you "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/404.php:26
+msgid "go to home"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/404.php:26
+msgid " page or simply search what you want to see below"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/404.php:49
+msgid " Categories"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_functions.php:231
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/archive-listing.php:125
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/mobile-listing.php:149
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/taxonomy-listingcategory.php:134
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/taxonomy-listingtags.php:133
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/tevolution_ajax_results.php:134
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/archive-listing.php:125 C:\wamp\www\wp40beta\wp-content\themes\Splendor/taxonomy-listingcategory.php:131
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/taxonomy-listingtags.php:133
+msgid "Apologies, but no results were found for the requested archive."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_functions.php:450
+msgid "(Sample csv file)"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_functions.php:811
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/tevolution-single-listing-preview.php:77
+msgid "Phone"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_functions.php:817
+msgid "Profile"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_functions.php:820
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:805
+msgid "Total Submissions"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_functions.php:821
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:167
+msgid "Send inquiry"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_listing_functions.php:121
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/content-blog.php:33 C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/content-blog.php:72
+msgid "Featured"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_listing_functions.php:205
+msgid "twitter"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_listing_functions.php:211
+msgid "facebook"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_listing_functions.php:217
+msgid "Google+"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_listing_functions.php:332
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/map/map-shortcodes/map-shortcodes.php:87
+msgid "Pinpoint"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/functions/directory_single_functions.php:453
+msgid "Related Listings"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:29
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:43
+msgid "By car"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:30
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:44
+msgid "By public transit"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:31
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:45
+msgid "By Bicycling"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:32
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:46
+msgid "By Walking"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:35
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:49
+msgid "Metric"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:36
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:50
+msgid "Imperial"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:39
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:59
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:35
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:72
+msgid "Enter Location"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:41
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:37
+msgid "Get Directions"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:42
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:38
+msgid "View Large Map"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:61
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:74
+msgid "Please enter your address to get the direction map."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:88
+msgid "Directions failed: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:109
+msgid "Unsupported travel mode."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:194
+msgid "Street View data not found for this location."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_map_detail.php:219
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:395
+msgid "View Larger Map"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_maps.php:57
+msgid "Enable"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_maps.php:70
+msgid "Click"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_maps.php:275
+msgid "No Records Found"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_maps.php:277
+msgid "Sorry, no records were found. Please adjust your search criteria and try again."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_maps.php:284
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/google_map_widget.php:115
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_taxonomies_map.php:143
+msgid "Title or Keyword"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_maps.php:380
+msgid "Select Post:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_maps.php:394
+msgid "Categories:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_maps.php:1122
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_locations.php:1723
+msgid "Categories"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/google_maps.php:1335
+msgid "Map Settings"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/widgets.php:112
+msgid "Sorry! There are no nearby results found"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/widgets.php:404
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/widgets.php:441
+msgid "View all &raquo;"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/widgets.php:576
+msgid "Enter your address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/widgets.php:579
+msgid "Mile range:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/google-maps/widgets.php:583
+msgid "Kilometer range:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/listing/listing_auto_install_xml.php:1552
+msgid "Sample Data has been inserted."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-search-form.php:8
+msgid "Search for"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-search-form.php:11
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_advanced_search_widget.php:53
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_advanced_search_widget.php:71
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/searchform.php:14
+msgid "Search"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-single-content.php:62
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/mobile-single-listing.php:310
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/tevolution-single-listing-preview.php:111
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/directory-listing-single-content.php:184
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/tevolution-single-listing-preview.php:262
+msgid "Overview"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-single-content.php:68
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/mobile-single-listing.php:326
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/tevolution-single-listing-preview.php:114
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1522
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_preview_function.php:212
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:401
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/directory-listing-single-content.php:195
+msgid "Map"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-single-content.php:97
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/mobile-single-listing.php:398
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/directory-listing-single-content.php:224
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/tevolution-single-listing-preview.php:287
+msgid "Events"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-single-content.php:218
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/mobile-single-listing.php:258
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/directory-listing-single-content.php:138
+msgid "Upload Images"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-single-content.php:279
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/mobile-single-listing.php:363
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:2093
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/directory-listing-single-content.php:287
+msgid "Edit Video"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-single-content.php:333
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:96
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/single-listing.php:83
+msgid "Visited"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-single-content.php:335
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:97
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/single-listing.php:85
+msgid "time"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-single-content.php:335
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:98
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/single-listing.php:85
+msgid "times"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-single-content.php:337
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/single-listing.php:87
+msgid "Visit today"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/directory-listing-single-content.php:337
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:93
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:180
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/single-listing.php:87
+msgid "Visits today"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/listing-search.php:41
+msgid "Search Results for: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/listing-search.php:132
+msgid "Sorry! No results were found for the requested search. Try searching with some different keywords"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/mobile-single-listing.php:81
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/single-listing.php:48
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/single-listing.php:42
+msgid "Upload "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/mobile-single-listing.php:114
+msgid "Call"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/mobile-single-listing.php:120
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/tevolution-single-listing-preview.php:83
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:671
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:7
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:261
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4269
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/languages/tmpl-front-string.php:8
+msgid "Email"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/tevolution-single-listing-preview.php:58
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/tevolution-single-listing-preview.php:71
+msgid "Logo"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/tevolution-single-listing-preview.php:71
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:8
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:271
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/languages/tmpl-front-string.php:9
+msgid "Website"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/tevolution-single-listing-preview.php:80
+msgid "Time"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/tevolution-single-listing-preview.php:118
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/tevolution-single-listing-preview.php:268
+msgid "Special Offer"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-Directory/templates/tevolution-single-listing-preview.php:122
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/tevolution-single-listing-preview.php:272
+msgid "Video"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/google_map_widget.php:111
+msgid "Your selected category does not have any records at your current location."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/location_functions.php:399
+msgid "Select a city"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:8
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:2045
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:714
+msgid "Country"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:12
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/widget_functions.php:78
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:236
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:237
+msgid "Select Country"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:16
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:2048
+msgid "State"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:20
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:238
+msgid "Select State"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:24
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:2051
+msgid "City"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:28
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:239
+msgid "Select City"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:108
+msgid "Loading..."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:110
+msgid "Default City"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:514
+msgid "Multi City"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:980
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:1142
+msgid "My Nearest City"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:1095
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1524
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_preview_function.php:213
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:403
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:170
+msgid "Location"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_function.php:1257
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:247
+msgid "Please wait, We are taking you to your nearest city."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_locations.php:248
+msgid "Location Tracking Method"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/manage_locations.php:304
+msgid ""
+"We Suggest you to deactivate the <span style=\"color:red;\">Tevolution-LocationManager</span> plugin instead of disabling all the post types, as there is not single "
+"feature work if you don&#39;t select any posttype."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/map/locations_map.php:239
+msgid "Clicking the above \"Set Address on Map\" button, you can simply drag the pinpoint to locate the exact address on the map. "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/map/map-shortcodes/city_map_shortcode.php:130
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_taxonomies_map.php:139
+msgid "Your selected category do not have any records yet at your current location."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/widget_functions.php:92
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/widget_functions.php:203
+msgid "All Regions"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/widget_functions.php:107
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/widget_functions.php:218
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution-LocationManager/functions/widget_functions.php:319
+msgid "All Cities"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/class-wp-list-table.php:286
+msgid "No items found."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/class-wp-list-table.php:512
+msgid "Filter by date"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/class-wp-list-table.php:514
+msgid "All dates"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/templates/archive-tevolution.php:84
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/templates/taxonomy-tevolution-tag.php:74
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/templates/taxonomy-tevolution.php:77
+msgid "Apologies, no results were found matching this search criteria."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/templatic.php:436
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:1532
+msgid "Payment Cancelled"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/claim_functions.php:576
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/claim_functions.php:809
+msgid "Your claim for this post has been sent successfully."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/claim_functions.php:690
+msgid "Claim For This"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/claim_functions.php:700
+msgid "Claim For This Listing"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/install.php:126
+msgid "View all claimed lIstings"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/popup_claim_form.php:18
+msgid "Verify ownership of"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/popup_claim_form.php:36
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:360
+msgid "Username"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/popup_claim_form.php:37
+msgid "Your Email"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/popup_claim_form.php:38
+msgid "Contact No"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/popup_claim_form.php:39
+msgid "Your Claim"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/popup_claim_form.php:39
+msgid "Hello, I would like to notify you that I am the owner of this listing. I would like to verify its authenticity."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-claim_ownership/popup_claim_form.php:43
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_post_upgrade.php:174
+msgid "Submit"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/admin_custom_fuctions.php:1278
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/image_uploader.php:98
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:974
+msgid "Upload Image"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/admin_manage_custom_fields_edit.php:479
+msgid "Edit - "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/admin_manage_custom_fields_edit.php:486
+msgid "Back to manage custom fields"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/admin_manage_custom_fields_edit.php:587
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/category.php:50
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/general_functions.php:1300
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/add_price_packages.php:137
+msgid "Select All"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:107
+msgid "Go back and edit"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1234
+msgid "Accept Terms and Conditions."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1468
+msgid "Package Type"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1474
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:327
+msgid "Validity"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1474
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1614
+msgid "Days"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1478
+msgid "Number of Posts"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1486
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:328
+msgid "Recurring Charges"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1502
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:383
+msgid "Post Description"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1511
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:239
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:354
+msgid "Post Excerpt"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1615
+msgid "Safari will allow you to upload only one image, so we suggest you use some other browser."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1689
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1701
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:1715
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:182
+msgid "Information"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2070
+msgid "Category: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2077
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:68
+msgid "Tags: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2084
+msgid "Author: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2092
+msgid "Min Price: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2100
+msgid "Max Price: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2124
+msgid "Country: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2131
+msgid "State: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2138
+msgid "City: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2307
+msgid "Charges: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2318
+msgid "Payment Method: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2349
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:189
+msgid "My Favorites"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/custom_fields_function.php:2587
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:346
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:1026
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/functions.php:1559
+msgid "Tweet"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/google_map_detail.php:31
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/location_add_map.php:409
+msgid "Enter a location"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/image_uploader.php:102
+msgid "Maximum upload file size: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/image_uploader.php:130
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:705
+msgid "Image can&rsquo;t be uploaded due to some error."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/image_uploader.php:136
+msgid "Your image size must be less then"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/image_uploader.php:136
+msgid "kilobytes"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/image_uploader.php:144
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/image_uploader.php:155
+msgid "You can upload maximum 10 images"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/install.php:903
+msgid "Tip: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/success.php:81
+msgid "ERROR: Sorry, you are not allowed to view this post."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:613
+msgid "Please Select"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:645
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:825
+msgid "You can drag &amp; drop images from your computer to this box."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:646
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:826
+msgid "OR"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:658
+msgid "Upload File"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:724
+msgid "File Deleted"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:765
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:767
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:121
+msgid "Delete"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:975
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:275
+msgid "Select Category"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:981
+msgid "Select a category for your "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_fields/tevolution_custom_fields_functions.php:1014
+msgid "In which category you'd like to publish this "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:452
+msgid "Uncategorized"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:467
+msgid "No Tags"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:665
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:116
+msgid "Price"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:750
+msgid "A new post has been submitted on your site"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:820
+msgid "Details about the listing you have submitted on [#site_title#]"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:1036
+msgid "Submission pending payment"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:1168
+msgid "A New Upgrade Request"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:1240
+msgid "Payment Pending For Upgrade Request: #[#post_id#]"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:1312
+msgid "[#site_title#] Your new password"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:1386
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:24
+msgid "New Claim Submitted"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:1458
+msgid "Listing expiration Notification"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:1604
+msgid "[#post_type#] ID #[#submition_Id#] has been updated"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:1676
+msgid "[#post_type#] renew of ID:#[#submition_Id#]"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/install.php:1748
+msgid "Listing payment not confirmed"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:610
+msgid "Related"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:828
+msgid "Tagged In"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1213
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1218
+msgid "LIST VIEW"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1214
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1220
+msgid "MAP"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1217
+msgid "GRID VIEW"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1251
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:252
+msgid "Sort By"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1255
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:254
+msgid "Alphabetical"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1261
+msgid "Title Ascending"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1267
+msgid "Title Descending"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1273
+msgid "Publish Date Ascending"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1279
+msgid "Publish Date Descending"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1285
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:1537
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:38
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/tevolution-single-listing-preview.php:85
+msgid "Reviews"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1291
+msgid "Rating"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1297
+msgid "Random"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-custom_taxonomy/taxonomy_functions.php:1333
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:253
+msgid "All"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/add_to_favourites.php:44
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:110
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:168
+msgid "Add to favorites"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/general_functions.php:131
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/general_functions.php:134
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/general_functions.php:219
+msgid "Email sent successfully"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/general_functions.php:476
+msgid "Save All Settings"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/general_functions.php:2560
+msgid "Visit Website"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/general_functions.php:2563
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:52
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:634
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:111
+msgid "Facebook"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/general_functions.php:2567
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:56
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:640
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:115
+msgid "Twitter"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/general_functions.php:2571
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:64
+msgid "LinkedIn"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_frms.php:12
+msgid "Send To Friend"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_frms.php:17
+msgid "Friend&rsquo;s name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_frms.php:23
+msgid "Friend&rsquo;s email"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_frms.php:28
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:269
+msgid "Your name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_frms.php:33
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_inquiry_frm.php:18
+msgid "Your email"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_frms.php:38
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_inquiry_frm.php:22
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4272
+msgid "Subject"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_frms.php:39
+msgid "Check out this post"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_frms.php:42
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:35
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:272
+msgid "Comments"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_frms.php:43
+msgid "Hello, I just stumbled upon this listing and thought you might like it. Just check it out."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_frms.php:52
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_inquiry_frm.php:48
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4293
+msgid "Send"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_inquiry_frm.php:13
+msgid "Inquiry for"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_inquiry_frm.php:16
+msgid "Full name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_inquiry_frm.php:20
+msgid "Contact number"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_inquiry_frm.php:23
+msgid "Inquiry email"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_inquiry_frm.php:25
+msgid " Message"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-generalization/popup_inquiry_frm.php:27
+msgid "Hello, I would like to inquire more about this listing. Please let me know how can I get in touch with you. Waiting for your prompt reply?"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:378
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1272
+msgid "Would you like to make this "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:378
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1272
+msgid "featured?"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:490
+msgid "Select a Package"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1107
+msgid "Select your payment plan"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1124
+msgid "You have already subscribed to this package. "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1131
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1594
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1637
+msgid "Number of free submissions: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1131
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1594
+msgid " Submitted "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1131
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1594
+msgid " Left."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1153
+msgid "Submit listing within following days: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1161
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:120
+msgid "Upgrade"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1165
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1978
+msgid "Select"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1277
+msgid "Yes &sbquo; feature this listing on homepage."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1280
+msgid "Yes &sbquo; feature this listing on category page."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1321
+msgid "Total Charges:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1582
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1600
+msgid "Package Type: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1582
+msgid "Subscription"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1583
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1601
+msgid "Listing duration: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1583
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1601
+msgid " days"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1584
+msgid "Number of listings included in the package: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1588
+msgid "Listings can be submitted within: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1588
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1704
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1710
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:83
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:145
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:200
+msgid "days"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1600
+msgid "Single Submission"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1611
+msgid "Recurring period"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1614
+msgid "Day"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1618
+msgid "Month"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1618
+msgid "Months"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1622
+msgid "Year"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1622
+msgid "Years"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1629
+msgid "Number of cycles"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1633
+msgid "This price package will offer free trial period or plan to bill the first instalment of a recurring payment only for PayPal payment gateway."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1675
+msgid "Listings submitted with this package will be automatically featured on: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1679
+msgid "Homepage and Category page"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1700
+msgid "Listings submitted with this package will be featured on: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1702
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:349
+msgid "Homepage"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1704
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1710
+msgid " for "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1708
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:350
+msgid "Category page"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/price_package_functions.php:1961
+msgid "Price: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/templatic-payment_options/payment/paypal/cancel.php:37
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:58
+msgid "Home"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/templatic-payment_options/payment/paypal/cancel.php:44
+msgid "Payment Cancellation"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/templatic-payment_options/payment/paypal/cancel.php:59
+msgid "Go to Home"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/templatic-payment_options/payment/paypal/cancel.php:88
+msgid "You are not allowed to access this page."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/templatic-payment_options/payment_cancel.php:36
+msgid "Invalid procedure."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/templatic_transaction_detail_report.php:29
+msgid "Transaction Report"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/templatic_transaction_detail_report.php:32
+msgid "Transaction Detail"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/templatic_transaction_detail_report.php:48
+msgid "Package Detail"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/templatic_transaction_detail_report.php:76
+msgid "Transaction Status"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-monetization/templatic_transaction_detail_report.php:98
+msgid "User Information"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-ratings/templatic_post_rating.php:140
+msgid "Rate this by clicking a star below"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-ratings/templatic_post_rating.php:164
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/login_box_widget.php:163
+msgid "Dashboard"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/login_box_widget.php:164
+msgid "Edit profile"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/login_box_widget.php:165
+msgid "Change password"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/login_box_widget.php:169
+msgid "Logout"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/login_box_widget.php:185
+msgid "The password you entered is incorrect. Please try again."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/login_box_widget.php:204
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/login_box_widget.php:329
+msgid "Already have an account? "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/login_box_widget.php:204
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/login_box_widget.php:329
+msgid "Sign in"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_form.php:186
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_form.php:333
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:352
+msgid "Sign Up"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_form.php:313
+msgid "Or use your email address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_form.php:344
+msgid "Registration is disabled on this website."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:60
+msgid "Google Plus"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:67
+msgid "Contact Me"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:207
+msgid "Edit Profile"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:243
+msgid "Please edit your"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:243
+msgid "profile"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:243
+msgid "and mention your email address to get notifications"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:433
+msgid "Login or register"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:454
+msgid "Incorrect Username/Password."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:459
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:310
+msgid "I am a"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:460
+msgid "Existing User"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:464
+msgid "New User? Register Now"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:477
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:487
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:140
+msgid "Login"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:482
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:366
+msgid "Password"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:543
+msgid "The email address is correctly entered."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:549
+msgid "Email address already exists, Please enter another email"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:570
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:267
+msgid "Usernames should not contain space."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:575
+msgid "The username must be at least 4 characters long"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:584
+msgid "This username is available."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:593
+msgid "The username you entered already exists, please try a different one"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:631
+msgid "Sign in with"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:637
+msgid "Google"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:667
+msgid "Forgot password"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:677
+msgid "Get New Password"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:838
+msgid "You have subscribed to"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:840
+msgid "price package for"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:842
+msgid "Total number of posts:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:844
+msgid "Submited:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/registration_functions.php:846
+msgid "Remaining:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:255
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:383
+msgid "Sign In"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:355
+msgid "OR use your account"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:375
+msgid "Remember me on this computer"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:379
+msgid "Forgot your password"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:391
+msgid "New User? "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:393
+msgid "Register Now"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:431
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:249
+msgid "Please Enter E-mail"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/shortcodes_registration.php:435
+msgid "Please provide a valid email address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:87
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:107
+msgid "Update"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:88
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:108
+msgid "Cancel"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:96
+msgid "Password changed successfully. Please login with your new password."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:100
+msgid "New Password"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:104
+msgid "Confirm New Password"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:118
+msgid "Please enter New Password"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:124
+msgid "Please enter New Password minimum 5 chars"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:130
+msgid "Please enter Confirm New Password"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:136
+msgid "Please enter Confirm New Password minimum 5 chars"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-registration/user_profile.php:142
+msgid "New Password and Confirm New Password should be same"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_advanced_search_widget.php:102
+msgid "Post"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_advanced_search_widget.php:682
+msgid "Within?"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_advanced_search_widget.php:809
+msgid "Min value"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_advanced_search_widget.php:812
+msgid "Max value"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_browse_by_categories_widget.php:117
+msgid "No Tag Available"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_metakey_search_widget.php:320
+msgid "Address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_people_list_widget.php:86
+msgid "Submitted"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_people_list_widget.php:89
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:316
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:184
+msgid "Listings"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_people_list_widget.php:93
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:319
+msgid "Listing"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_people_list_widget.php:103
+msgid "There is no user registered with"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/monetize/templatic-widgets/templatic_people_list_widget.php:103
+msgid "role."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:255
+msgid "Most Submitted"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:321
+msgid "No listings"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:328
+msgid "Email Me"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:332
+msgid "View Profile"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:340
+msgid "This page is most likely empty now. It will be populated automatically once people add posts on the site."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:393
+msgid "Prev"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_people.php:407
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:52
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:320
+msgid "Next"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_post_upgrade.php:92
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_submit_form_page.php:203
+msgid "Enter Details"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_post_upgrade.php:143
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_submit_form_page.php:295
+msgid "Login / Register"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_post_upgrade.php:168
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_submit_form_page.php:326
+msgid "Payment"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_submit_form_page.php:140
+msgid "ERROR: Sorry, you are not allowed to edit this post."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/shortcodes/shortcode_submit_form_page.php:345
+msgid "Pay Now"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/taxonomies_permalink/taxonomies_permalink.php:271
+msgid "Reset all rules"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:337
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/functions.php:1546
+msgid "Facebook Share."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:353
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/functions.php:1576
+msgid "Pin It"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:980
+msgid "Deleting."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:989
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-page.php:136
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/contact-us.php:140
+msgid "Please enter your name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:991
+msgid "Please enter your email address."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:1006
+msgid "Please give rating"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:1020
+msgid " or "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:1024
+msgid "Please Login before you submit a form."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:1027
+msgid "Share"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:1028
+msgid "Pin"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:1535
+msgid "Review"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/templatic-connector.php:1872
+msgid "Dismiss"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/Tevolution/tmplconnector/tevolution_page_templates.php:352
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:196
+msgid "Description"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/comments.php:52 C:\wamp\www\wp40beta\wp-content\themes\Splendor/comments.php:59
+msgid "Reviews are disabled, but "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/comments.php:54
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-comments.php:91 C:\wamp\www\wp40beta\wp-content\themes\Splendor/comments.php:61
+msgid "trackbacks"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/comments.php:56
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-comments.php:93 C:\wamp\www\wp40beta\wp-content\themes\Splendor/comments.php:63
+msgid "and pingbacks are open."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/comments.php:62
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-comments.php:99 C:\wamp\www\wp40beta\wp-content\themes\Splendor/comments.php:69
+msgid "Reviews are disabled."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/content-blog.php:17
+msgid "Featured post"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/header.php:112 C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/functions.php:1292
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/menus.php:41
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/menus.php:65
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/menus.php:91
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/menus.php:132
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/full-page-map.php:90
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/full-page-map.php:144 C:\wamp\www\wp40beta\wp-content\themes\Splendor/header.php:119
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/page-templates/full-page-map.php:85
+msgid "Menu"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/index.php:72 C:\wamp\www\wp40beta\wp-content\themes\Splendor/index.php:73
+msgid "No Entries"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/index.php:74 C:\wamp\www\wp40beta\wp-content\themes\Splendor/index.php:75
+msgid "Apologies, but no entries were found."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:3
+msgid "Comment"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:4
+msgid "Log out of this account"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:5
+msgid "Log out &raquo;"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:6
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:260
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2645
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2680
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4266
+msgid "Name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:9
+msgid "*"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:10
+msgid "Leave a Reply"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:11
+msgid "Add a Review"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:12
+msgid "Leave a Reply to "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:13
+msgid "Add a Review to "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:14
+msgid "Click here to cancel reply."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:15
+msgid "Post Comment"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:16
+msgid "Logged in as"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:17
+msgid " and "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:18
+msgid "View the entire comment"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:20
+msgid "Leave a response"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:21
+#, php-format
+msgid "%1$s Response"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:22
+#, php-format
+msgid "%1$s Responses"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:23
+msgid " (Listing owner) "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:25
+msgid "Other Information"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:26
+msgid "Total Price"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:27
+msgid "Payment Details for"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:28
+msgid "Type"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:29
+msgid "Date"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:30
+msgid "Price Package Information"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:31
+msgid "Wrong username or password."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:33
+msgid "No Comment"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:34
+msgid "One Comment"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:36
+msgid "No Review"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:37
+msgid "One Review"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:39
+msgid "1 Comment"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:40
+msgid "Post Review"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:41
+msgid "rating"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:42
+msgid "ratings"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:43
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:162
+msgid "Upgraded Successfully"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:44
+msgid "Renew"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:45
+msgid "| No Comments"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:46
+msgid "| 1 Comment"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:47
+msgid "| % Comments"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:48
+msgid "| Comments Closed"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:51
+msgid "Last Page"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:53
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:319
+msgid "Previous"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:54
+msgid "First Page"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:59
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:159
+msgid "Search results for"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:60
+msgid "404 Not Found"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:63
+msgid "Published by"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:64
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:119
+msgid "Edit"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:65
+msgid "Edit "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:66
+msgid "On"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:67
+msgid "Categories: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:69
+msgid "[Read More...]"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:72
+msgid "Mile"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:73
+msgid "Kilometer"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:74
+msgid "Kilometers"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:75
+msgid "Miles"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:78
+msgid "min"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:79
+msgid "mins"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:80
+msgid "hour"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:81
+msgid "hours"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:82
+msgid "day"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:84
+msgid "week"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:85
+msgid "weeks"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:86
+msgid "month"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:87
+msgid "months"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:88
+msgid "year"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:89
+msgid "years"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:90
+msgid "ago"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:91
+msgid "view"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:92
+msgid "views"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:99
+msgid "Visit"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:100
+msgid "Visits"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:101
+msgid "today"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:102
+msgid "To"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:105
+msgid "Reply"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:106
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/languages/tmpl-front-string.php:3
+msgid "Log in to reply."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:107
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:111
+msgid "Added"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:112
+msgid "You cannot select more than "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:113
+msgid " categories with this package."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:115
+msgid "Package Name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:117
+msgid "Next Billing will occur on: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:118
+msgid "Expires On: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:122
+msgid "This listing is not published yet, contact site administrator for more details."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:125
+msgid "Already Claimed"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:126
+msgid "Owner Verified Listing"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:127
+msgid "ERROR: Please enter a username."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:128
+msgid "<strong>ERROR</strong>: This username is invalid.  Please enter a valid username."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:129
+msgid "<strong>ERROR</strong>: This username is already registered, please choose another one."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:130
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:131
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:132
+msgid "<strong>ERROR</strong>: This email is already registered, please choose another one."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:133
+#, php-format
+msgid "You have subscribed to this package but your transaction is not approved yet. Please %s contact%s the administrator of the site for more details."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:134
+msgid "Pay With"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:136
+msgid "Select Categories"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:139
+msgid "Register"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:143
+msgid "You are going to update a post that will cost you "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:144
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:204
+msgid "for"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:146
+msgid "You are going to update your entry. To make any changes, please press the 'Go back and edit' button below."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:147
+msgid ""
+"<p>Hello [#to_name#]</p><p>Here's some info about your payment...</p><p>[#transaction_details#]</p><p>If you'll have any questions about this payment please send an "
+"email to [#admin_email#]</p><p>Thanks!,<br/>[#site_name#]</p>"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:148
+msgid ""
+"<p>Howdy [#to_name#] ,</p><p>You have received a payment of [#payable_amt#] on [#site_name#]. Details are available below</p><p>[#transaction_details#]</p><p>Thanks,<br/"
+">[#site_name#]</p>"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:149
+msgid "Thank you! We have successfully received the submitted information."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:150
+msgid "Click here"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:151
+msgid "for a preview of the submitted content."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:152
+msgid "View your submitted information"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:153
+msgid "Thank you! We have successfully received your PreBank payment request."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:154
+msgid "To complete the transaction please transfer "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:155
+msgid "Please include the following number as reference:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:156
+msgid "Thank you!"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:157
+msgid ""
+"<p>Howdy [#to_name#] ,</p><p>Payment from [#user_login#] is pending for the new listing they submitted on your site as they selected pre bank transfer as their preferred "
+"payment method.</p><p><p>You can view details below [#transaction_details#]</p> <p>You can contact [#user_login#] for status of the payment.</p><p>Thanks!<br/"
+">[#site_name#]</p>"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:158
+msgid "Payment Method"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:159
+msgid "Paid amount"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:160
+msgid "Status"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:161
+msgid "Submitted Successfully"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:163
+msgid "Updated Successfully"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:166
+msgid "Send to friend"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:169
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/searchform.php:12
+msgid "Looking For ..."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:171
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/languages/tmpl-front-string.php:6
+msgid "Mail to a friend"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:172
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/languages/tmpl-front-string.php:7
+msgid "Send Inquiry"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:173
+msgid " Head over to the "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:174
+msgid "Form"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:175
+msgid " to add one."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:178
+msgid "What?"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:179
+msgid "Pay &amp; Publish"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:181
+msgid "Read more"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:186
+msgid "Listing Information"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:192
+msgid "Thank you for your submission!"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:193
+msgid "Information Submitted URL"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:194
+msgid "Category"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:195
+msgid "Title"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:197
+msgid "Excerpt"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:198
+msgid "Images"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:199
+msgid "You are going to submit post for "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:201
+msgid "You are going to upgrade your post with "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:202
+msgid "package which will cost you"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:203
+msgid "You are going to submit a post that will cost you "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:205
+msgid "This is the preview of your submitted information. To make any changes, please press the 'Go back and edit' button below."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:206
+msgid "You are going to update your entry."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:207
+msgid "Log out"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:208
+msgid "PREV"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:209
+msgid "NEXT"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:210
+msgid "Based on"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:211
+msgid "Please enter your friend's name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:212
+msgid "Please enter your friend's valid email address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:213
+msgid "Please enter your valid email address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:214
+msgid "Are you really sure want to DELETE this post? Deleted post can not be recovered later."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:215
+msgid "Oops! Please make sure you have filled all the mandatory fields."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:216
+msgid "Please upload at least 1 image to the gallery !"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:218
+msgid "Please select Category"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:219
+msgid "Please Enter title"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:220
+msgid "Please enter phone number"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:221
+msgid "Please Enter Address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:222
+msgid "Please Enter content"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:223
+msgid "Please provide your email address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:224
+msgid "Please provide valid email address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:225
+msgid "Oops!, looks like you forgot to enter a value in some compulsory field"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:226
+msgid "Your submitted Information"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:227
+msgid "Please Select Price Package"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:228
+#, php-format
+msgid "Select your %s package"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:229
+#, php-format
+msgid "You have subscribed to the %s package."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:230
+msgid "Please accept Terms and Conditions."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:231
+msgid "Incorrect username"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:233
+msgid "Please select country name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:234
+msgid "Please select city name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:235
+msgid "Please select state name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:240
+msgid "Select Payment Method"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:241
+msgid "States not available"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:242
+msgid "City not available"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:243
+msgid "read more"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:244
+msgid "User name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:245
+msgid "review"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:246
+msgid "reviews"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:250
+msgid "Please Enter User name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:251
+#, php-format
+msgid "Please Enter %s"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:252
+msgid "Your profile is updated successfully."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:253
+msgid "Your Profile"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:254
+msgid "Thank you for purchasing a subscription plan"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:255
+msgid "Thank you for registration! Please check your mail to get your login information."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:258
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:282
+msgid "Dear"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:259
+msgid "You have an inquiry message. Here are the details"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:262
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4279
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/languages/tmpl-front-string.php:5
+msgid "Message"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:263
+msgid "Check your e-mail for your new password."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:264
+msgid "<strong>ERROR</strong>: There is no user registered with that email address."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:266
+msgid "User name must be minimum 4 character long"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:268
+msgid "Search For"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:270
+msgid "Email Address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:278
+msgid "Update Now"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:279
+msgid "Payment Pending For Upgrade Request: #"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:283
+msgid "Claim verified for - "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:284
+msgid "The Claim for the"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:285
+msgid " has been verified."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:286
+msgid "You can login with the following credentials :"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:287
+msgid "Username:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:288
+msgid "Password:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:289
+msgid "You can login from [#site_login_url#] or copy this link and paste it to your browser's address bar: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:290
+msgid "Thanks,"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:294
+msgid "<p>Dear [#to_name#],</p>"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:295
+msgid "<p>Your "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:296
+msgid " has been updated by you . Here is the information about the "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:297
+msgid "</p>[#information_details#]<br><p>[#site_name#]</p>"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:298
+msgid "has been renew by you . Here is the information about the"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:299
+msgid "View more detail of"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:300
+msgid "Payment Status: <b>Pending</b>"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:301
+msgid "Payment Method:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:302
+msgid "Payment Status: <b>Success</b>"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:303
+msgid "Bank Name: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:304
+msgid "Account Number: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:305
+#, php-format
+msgid "Thank you for submitting your %s at our site, your %s request has been updated successfully."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:306
+msgid "Log in"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:307
+msgid "You must be"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:308
+msgid "logged in"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:309
+msgid " to post a comment."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:311
+msgid "Preview This"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:312
+msgid "We have found these results for listings matching your search criteria."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:313
+msgid "From:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:314
+msgid "<i>Previous</i>"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:315
+msgid "<i>Next</i>"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:316
+#, php-format
+msgid "Visited %s times"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:317
+msgid " Visits today"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:318
+msgid "Set Address on Map"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:321
+msgid "Please Enter "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:322
+#, php-format
+msgid "Posted in %s"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:323
+msgid "Posted In"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:324
+msgid "Package type"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:325
+msgid "Pay per subscription"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:326
+msgid "Pay per post"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:329
+msgid "Coupon added successfully."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:330
+msgid "Added Successfully"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:331
+msgid "Submission received successfully, thank you for listing with us."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:332
+msgid "Tagged In "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "A"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "B"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "C"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "D"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "E"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "F"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "G"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "H"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "I"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "J"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "K"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "L"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "M"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "N"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "O"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "P"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "Q"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "R"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "S"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "T"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "U"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "V"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "W"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "X"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "Y"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:333
+msgid "Z"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:334
+msgid "Continue"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:335
+msgid "Preview"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:336
+msgid "Please select Country"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:337
+msgid "Please select State"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:338
+msgid "Please select City"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:339
+msgid "Approved"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:340
+msgid "Pending"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:341
+#, php-format
+msgid "Welcome %s, submit your listing details."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:342
+msgid "Add Review"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:343
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:351
+msgid "unlimited"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:344
+#, php-format
+msgid "<span>Posted In</span> %s"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:345
+msgid "Renew Successfully Information"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:346
+msgid "Amount"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:347
+msgid "Please enter a valid email address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:348
+msgid "Free"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:353
+msgid "Verified"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:354
+msgid "Beds "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:355
+msgid "Baths "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:356
+msgid "sq.ft"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:357
+#, php-format
+msgid "This package allows you to add %d listings, you have already added %d. You still have %d listings left in your package."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:358
+#, php-format
+msgid "%s Category"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/languages/templatic-front-end-string.php:359
+#, php-format
+msgid "Please Select %s"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/classes/process_mailchimp.php:25
+msgid "Successfully Subscribed. Please check confirmation email."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/classes/twitter.php:86
+msgid "cURL is NOT installed on this server"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/classes/twitter.php:186
+msgid "No public tweets"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/classes/twitter.php:190
+msgid "Unable to get tweets"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/functions.php:428
+msgid "Posted in"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/functions.php:432
+msgid "and tagged"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2269
+msgid "Geocode was not successful for the following reason"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2520
+msgid "Add more"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2522
+msgid "Remove"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2630
+msgid "Your Name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2631
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2646
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2657
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2681
+msgid "Your Email Address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2635
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2647
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2659
+msgid "Subscribe"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:2680
+msgid "Names"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:3112
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/functions/tmpl-functions.php:134
+msgid "Add More"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4147
+msgid "Please Enter Name"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4182
+msgid "Please Enter valid Email"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4198
+msgid "Please Enter Subject"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4215
+msgid "Please Enter Message"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4232
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-page.php:222
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/contact-us.php:226
+msgid "Please enter captcha"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4249
+msgid "Please fill the captcha form."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4253
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-page.php:71
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/contact-us.php:73
+msgid "You need to play the game to contact us."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4256
+msgid "Thank you! Your message has been successfully sent."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4259
+msgid "Please fill out all the fields before submitting."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:4912
+msgid "There is no post available right now."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:5492
+msgid "Subtotal"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:5495
+msgid "View Cart"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets.php:5497
+msgid "Checkout"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/library/functions/widgets_functions.php:539
+msgid "No Popular post fond."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-error.php:15
+msgid "Whoops. Looks like there are no favourites available here."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-error.php:17
+msgid "Whoops. Looks like there are no entries available here."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:107
+msgid "Link"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:131
+msgid "You have subscribed to "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:132
+msgid " which allows you to submit "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:135
+msgid " You have submitted "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:136
+msgid "events till now, go and submit remaining "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:139
+msgid " and you have already submitted."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:139
+msgid "to continue the listing Click on add/submit events."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:175
+msgid "You are browsing the search results for "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:184
+msgid "Daily Archives: "
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:186 C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:192
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:198
+msgid "You are browsing the site archives by."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:190
+msgid "Monthly Archives:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:196
+msgid "Yearly Archives:"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:219
+msgid "Archives"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/loop-meta.php:223
+msgid "You are browsing the site archives."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-comments.php:89
+msgid "Reviews are disabled, but"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-page.php:50
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/contact-us.php:52
+msgid "Contact mail successfully sent."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-page.php:170
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/contact-us.php:174
+msgid "Please enter valid email address"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-page.php:187
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/contact-us.php:191
+msgid "Please enter a subject"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/mobile-templates/mobile-page.php:203
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/contact-us.php:207
+msgid "Please enter message"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/archives.php:60
+msgid "by"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/Directory/page-templates/archives.php:64
+msgid "on"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/functions/tmpl-functions.php:346
+msgid "Already Owned."
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/functions/tmpl-functions.php:364
+msgid "Hotel Owner"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/functions/tmpl-functions.php:739
+msgid "Keyword"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/functions/tmpl_widgets.php:279
+msgid "No cities were selected in this widget"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/languages/tmpl-front-string.php:2
+msgid "Find Hotels"
+msgstr ""
+
+#: C:\wamp\www\wp40beta\wp-content\themes\Splendor/languages/tmpl-front-string.php:4
+msgid "Search by locality or landmark"
+msgstr ""
