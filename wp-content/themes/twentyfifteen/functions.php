@@ -367,3 +367,5 @@ require get_template_directory() . '/inc/template-tags.php';
  * @since Twenty Fifteen 1.0
  */
 require get_template_directory() . '/inc/customizer.php';
+
+remove_filter('template_redirect', 'redirect_canonical');

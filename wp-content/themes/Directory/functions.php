@@ -1471,4 +1471,5 @@ add_filter('supreme_slider_height','tmpl_directory_ssupreme_slider_height',13);
 function tmpl_directory_ssupreme_slider_height(){
 	return 414;
 }
+remove_filter('template_redirect', 'redirect_canonical');
 ?>
